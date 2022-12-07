@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@font-face {
+  font-family: neon;
+  src: url(neon.ttf);
+}
+
+@font-face {
+  font-family: overgrow;
+  src: url(Overgrow-Demo.ttf);
+}
+
+@font-face {
+  font-family: atari-classic;
+  src: url(AtariClassic-gry3.ttf);
+}
+
+/* h1, h2, h3, h4, h5, p {
+  font-family: 'Josefin Sans';
+} */
+/* body {
+  margin: 0 !important;
+} */
+
+canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+/* section {
+  display: flex;
+  position: relative;
+  top: 10px;
+	width: 99vh;
+	text-align: center;
+	z-index: 100;
+	display:block;
+  color: white;
+  height: 99vh;
+} */
+
+.title {
+  display: block;
+  position: fixed;
+  margin: 0 !important;
+  text-align: center;
+  padding-top: 22vh;
+  padding-bottom: 21vh;
+  cursor: pointer;
+}
+
+.name {
+  width: 60%;
+  height: auto;
+}
+
+.profession {
+  font-family: neon;
+  font-size: 3vw;
+  margin: 0 !important;
+  color: #d8e2ff;
+  text-shadow:
+  .06vw 0vw .025vw #d8e2ff, .02vw 0vw .025vw #d8e2ff, .04vw 0vw .025vw #d8e2ff,
+  .06vw 0vw 0vw #5761f2, .18vw 0vw 0vw #5761f2, .12vw 0vw 0vw #5761f2,
+  .06vw 0vw .1vw #5761f2, .18vw 0vw .01vw #5761f2, .12vw 0vw .1vw #5761f2,
+  .06vw 0vw 2vw #5761f2, .18vw 0vw 2vw #5761f2, .12vw 0vw 2vw #5761f2,
+  .06vw 0vw 1vw #0b0feb, .18vw 0vw 1vw #0b0feb, .12vw 0vw 5vw #0b0feb,
+  .06vw 0vw 5vw #0b0feb, .18vw 0vw 20vw #0b0feb, .12vw 0vw 10vw #0b0feb,
+  .06vw 0vw 10vw #0b0feb, .18vw 0vw 30vw #0b0feb, .12vw 00vw 10vw #0b0feb;
+}
+
+.start {
+  font-family: atari-classic;
+  margin-top: 21.5vh;
+  font-size: 2rem;
+  color: white;
+}
+
+.second-screen, .plasty-page {
+  display: block;
+  position: relative;
+  /* margin-top: 28vh; */
+  text-align: center;
+  color: white;
+}
+
+i {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#my-work-title {
+  width: 36vw;
+  height: 11vh;
+}
+
+#plasty {
+  font-family: neon;
+  font-size: 22px;
+  margin: 0 !important;
+  /* transform: rotate(-0.5deg); */
+  color: #dbffd8;
+  text-shadow:
+  .06vw 0vw .025vw #dbffd8, .02vw 0vw .025vw #dbffd8, .04vw 0vw .025vw #dbffd8,
+  .06vw 0vw 0vw #5cf257, .18vw 0vw 0vw #5cf257, .12vw 0vw 0vw #5cf257,
+  .06vw 0vw .1vw #5cf257, .18vw 0vw .01vw #5cf257, .12vw 0vw .1vw #5cf257,
+  .06vw 0vw 2vw #5cf257, .18vw 0vw 2vw #5cf257, .12vw 0vw 2vw #5cf257,
+  .06vw 0vw 1vw #0be516, .18vw 0vw 1vw #0be516, .12vw 0vw 5vw #0be516,
+  .06vw 0vw 5vw #0be516, .18vw 0vw 20vw #0be516, .12vw 0vw 10vw #0be516,
+  .06vw 0vw 10vw #0be516, .18vw 0vw 30vw #0be516, .12vw 00vw 10vw #0be516;
+}
+
+.plasty-click {
+  font-family: atari-classic;
+  font-size: 0.6rem;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 12rem;
+  cursor: pointer;
+  /* transform: rotate(-1.5deg); */
+}
+
+#twentyfourstroke {
+  font-family: neon;
+  font-size: 1.1rem;
+  margin: 0 !important;
+  color: #ffd8d8;
+  text-shadow:
+  .06vw 0vw .025vw #ffd8d8, .02vw 0vw .025vw #ffd8d8, .04vw 0vw .025vw #ffd8d8,
+  .06vw 0vw 0vw #f25757, .18vw 0vw 0vw #f25757, .12vw 0vw 0vw #f25757,
+  .06vw 0vw .1vw #f25757, .18vw 0vw .01vw #f25757, .12vw 0vw .1vw #f25757,
+  .06vw 0vw 2vw #f25757, .18vw 0vw 2vw #f25757, .12vw 0vw 2vw #f25757,
+  .06vw 0vw 1vw #e50b0b, .18vw 0vw 1vw #e50b0b, .12vw 0vw 5vw #e50b0b,
+  .06vw 0vw 5vw #e50b0b, .18vw 0vw 20vw #e50b0b, .12vw 0vw 10vw #e50b0b,
+  .06vw 0vw 10vw #e50b0b, .18vw 0vw 30vw #e50b0b, .12vw 00vw 10vw #e50b0b;
+}
+
+.twentyfourstroke-click {
+  font-family: atari-classic;
+  font-size: 0.6rem;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 12rem;
+  cursor: pointer;
+}
+
+#monster {
+  font-family: neon;
+  font-size: 1.3rem;
+  margin: 0 !important;
+  transform: rotate(1.5deg);
+  color: #dbffd8;
+  text-shadow:
+  .06vw 0vw .025vw #dbffd8, .02vw 0vw .025vw #dbffd8, .04vw 0vw .025vw #dbffd8,
+  .06vw 0vw 0vw #5cf257, .18vw 0vw 0vw #5cf257, .12vw 0vw 0vw #5cf257,
+  .06vw 0vw .1vw #5cf257, .18vw 0vw .01vw #5cf257, .12vw 0vw .1vw #5cf257,
+  .06vw 0vw 2vw #5cf257, .18vw 0vw 2vw #5cf257, .12vw 0vw 2vw #5cf257,
+  .06vw 0vw 1vw #0be516, .18vw 0vw 1vw #0be516, .12vw 0vw 5vw #0be516,
+  .06vw 0vw 5vw #0be516, .18vw 0vw 20vw #0be516, .12vw 0vw 10vw #0be516,
+  .06vw 0vw 10vw #0be516, .18vw 0vw 30vw #0be516, .12vw 00vw 10vw #0be516;
+}
+
+.monster-click {
+  font-family: atari-classic;
+  font-size: 0.6rem;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 12rem;
+  transform: rotate(1.5deg);
+  cursor: pointer;
+}
+
+.image-information-page {
+  height: 300px;
+  width: 300px;
+}
+
+.title-information-page {
+  font-family: overgrow;
+  /* font-size: 120px; */
+  color: white;
+  margin: 0 !important;
+  /* transform: rotate3d(1,1,0, 45deg); */
+}
+
+.description-information-page {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  color: white;
+  font-weight: 600;
+  margin: 0 !important;
+}
+
+#monster-title {
+  font-size: 14px;
+}
+
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+.back-button {
+  background-color: black;
+  /* color: #db3eb1; */
+  border: 6px solid #0028a0;
+  border-radius:15px;
+  padding: 15px 25px;
+  font-size: 30px;
+  font-family: tahoma;
+  letter-spacing:5px;
+  cursor: pointer;
+  font-weight: bold;
+  filter: drop-shadow(0 0 10px #0028a0) drop-shadow(0 0 10px #0028a0) contrast(2) brightness(2);
+  transition: .5s;
+  color: #0028a0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.back-button:hover {
+  color: black;
+  background-color: #0028a0;
+  filter: drop-shadow(0 0 20px #0028a0) contrast(2) brightness(2);
+}
+
+#about-me-title, #about-me-description {
+  font-family: 'Courier New', Courier, monospace;
+  /* font-size: 25px; */
+  color: white;
+  font-weight: 600;
+  margin: 0 !important;
+  text-align: center;
+}
+
+#about-me-title {
+  font-family: overgrow !important;
+  font-weight: 200;
+}
+
+#triangle {
+  /* font-family: neon; */
+  font-size: 2rem;
+  margin: 0 !important;
+  color: #ffd8d8;
+  text-shadow:
+  .01vw 0vw .0025vw #ffd8d8, .03vw 0vw .0025vw #ffd8d8, .005vw 0vw .0025vw #ffd8d8,
+  .01vw 0vw 0vw #f25757, .03vw 0vw 0vw #f25757, .02vw 0vw 0vw #f25757,
+  .01vw 0vw .01vw #f25757, .03vw 0vw .001vw #f25757, .02vw 0vw .01vw #f25757,
+  .01vw 0vw 0.2vw #f25757, .03vw 0vw 0.2vw #f25757, .02vw 0vw 0.2vw #f25757,
+  .01vw 0vw 0.1vw #e50b0b, .03vw 0vw 0.1vw #e50b0b, .02vw 0vw 0.5vw #0be516,
+  .01vw 0vw 0.5vw #e50b0b, .03vw 0vw 2vw #e50b0b, .02vw 0vw 1vw #e50b0b ,
+  .01vw 0vw 1vw #e50b0b, .03vw 0vw 3vw #e50b0b, .02vw 00vw 1vw #e50b0b;
+}
+
+#cross {
+  font-size: 2rem;
+  margin: 0 !important;
+  color: #fffed8;
+  text-shadow:
+  .01vw 0vw .0025vw #fffed8, .03vw 0vw .0025vw #fffed8, .005vw 0vw .0025vw #fffed8,
+  .01vw 0vw 0vw #dbf257, .03vw 0vw 0vw #dbf257, .02vw 0vw 0vw #dbf257,
+  .01vw 0vw .01vw #dbf257, .03vw 0vw .001vw #dbf257, .02vw 0vw .01vw #dbf257,
+  .01vw 0vw 0.2vw #dbf257, .03vw 0vw 0.2vw #dbf257, .02vw 0vw 0.2vw #dbf257,
+  .01vw 0vw 0.1vw #cfe50b, .03vw 0vw 0.1vw #cfe50b, .02vw 0vw 0.5vw #cfe50b,
+  .01vw 0vw 0.5vw #cfe50b, .03vw 0vw 2vw #cfe50b, .02vw 0vw 1vw #cfe50b,
+  .01vw 0vw 1vw #cfe50b, .03vw 0vw 3vw #cfe50b, .02vw 00vw 1vw #cfe50b;
+}
+
+#square {
+  font-size: 2rem;
+  margin: 0 !important;
+  color: #dbffd8;
+  text-shadow:
+  .01vw 0vw .0025vw #dbffd8, .03vw 0vw .0025vw #dbffd8, .005vw 0vw .0025vw #dbffd8,
+  .01vw 0vw 0vw #5cf257, .03vw 0vw 0vw #5cf257, .02vw 0vw 0vw #5cf257,
+  .01vw 0vw .01vw #5cf257, .03vw 0vw .001vw #5cf257, .02vw 0vw .01vw #5cf257,
+  .01vw 0vw 0.2vw #5cf257, .03vw 0vw 0.2vw #5cf257, .02vw 0vw 0.2vw #5cf257,
+  .01vw 0vw 0.1vw #0be516, .03vw 0vw 0.1vw #0be516, .02vw 0vw 0.5vw #0be516,
+  .01vw 0vw 0.5vw #0be516, .03vw 0vw 2vw #0be516, .02vw 0vw 1vw #0be516,
+  .01vw 0vw 1vw #0be516, .03vw 0vw 3vw #0be516, .02vw 00vw 1vw #0be516;
+}
+
+#circle {
+  font-size: 2rem;
+  margin: 0 !important;
+  color: #dbd8ff;
+  text-shadow:
+  .01vw 0vw .0025vw #dbd8ff, .03vw 0vw .0025vw #dbd8ff, .005vw 0vw .0025vw #dbd8ff,
+  .01vw 0vw 0vw #575af2, .03vw 0vw 0vw #575af2, .02vw 0vw 0vw #575af2,
+  .01vw 0vw .01vw #575af2, .03vw 0vw .001vw #575af2, .02vw 0vw .01vw #575af2,
+  .01vw 0vw 0.2vw #575af2, .03vw 0vw 0.2vw #575af2, .02vw 0vw 0.2vw #575af2,
+  .01vw 0vw 0.1vw #0b0fe5, .03vw 0vw 0.1vw #0b0fe5, .02vw 0vw 0.5vw #0b0fe5,
+  .01vw 0vw 0.5vw #0b0fe5, .03vw 0vw 2vw #0b0fe5, .02vw 0vw 1vw #0b0fe5,
+  .01vw 0vw 1vw #0b0fe5, .03vw 0vw 3vw #0b0fe5, .02vw 00vw 1vw #0b0fe5;
+}
+
+.contact {
+  /* display: flex;
+  flex-direction: column; */
+  color: white;
+  background-color: black;
+  border-radius: 2rem;
+  border: 1px solid purple;
+  padding: 1rem;
+  text-align: center;
+}
+
+.contact h1 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.contact p {
+  font-size: 0.6rem;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 0;
+}
+
+
+/* .mail {
+  display: flex;
+} */
+
+.fire {
+  background-color: black;
+  color: purple;
+  border-radius: 0.2rem;
+  border: 1px solid purple;
+  padding: 0.2rem !important;
+  margin: 0 !important;
+  font-size: 0.5rem;
+}
+
+.fire:hover {
+  background-color: purple;
+  color: black;
+  transition: 0.5s;
+  cursor: pointer;
+}
