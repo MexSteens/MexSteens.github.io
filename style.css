@@ -2,17 +2,17 @@
 
 @font-face {
   font-family: neon;
-  src: url(neon.ttf);
+  src: url(Fonts/neon.ttf);
 }
 
 @font-face {
   font-family: overgrow;
-  src: url(Overgrow-Demo.ttf);
+  src: url(Fonts/Overgrow-Demo.ttf);
 }
 
 @font-face {
   font-family: atari-classic;
-  src: url(AtariClassic-gry3.ttf);
+  src: url(Fonts/AtariClassic-gry3.ttf);
 }
 
 /* h1, h2, h3, h4, h5, p {

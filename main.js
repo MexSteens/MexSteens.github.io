@@ -8,7 +8,7 @@ import {CSS3DObject, CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRend
 import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader'
 import { degToRad } from 'three/src/math/MathUtils'
 import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader'
-// import {DragControls} from 'three/examples/jsm/controls/DragControls'
+
 //Setup of scene
 
 const scene = new THREE.Scene();
@@ -24,7 +24,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30)
 camera.position.setX(0)
 camera.position.setY(-400)
-// const controls = new OrbitControls(camera, renderer.domElement, scene)
 
 renderer.render(scene, camera)
 
@@ -39,7 +38,7 @@ scene.add( planeobject );
 
 //background plane
 
-const backgroundTexture = new THREE.TextureLoader().load('angryimg.png'); 
+const backgroundTexture = new THREE.TextureLoader().load('Scenery/angryimg.png'); 
 const planeGeometry1 = new THREE.PlaneGeometry( 500, 200, 20, 20 );
 const planematerial1 = new THREE.MeshBasicMaterial( { map: backgroundTexture } );
 const planeobject1 = new THREE.Mesh( planeGeometry1, planematerial1 );
@@ -62,7 +61,7 @@ for(let i=0;i<6000;i++) {
 let starGeo = new THREE.BufferGeometry().setFromPoints(points);
 
 
-let sprite = new THREE.TextureLoader().load( 'whitecirle.png' );
+let sprite = new THREE.TextureLoader().load( 'Scenery/whitecirle.png' );
 let starMaterial = new THREE.PointsMaterial({
   color: 0xaaaaaa,
   size: 0.7,
@@ -71,13 +70,6 @@ let starMaterial = new THREE.PointsMaterial({
 
 const stars = new THREE.Points(starGeo,starMaterial);
 scene.add(stars);
-
-//light can maybe be removed
-
-// const light = new THREE.DirectionalLight(0xffffff, 1)
-// light.position.set(0, 0, 1)
-// scene.add(light)
-
 
 //gridhelper startscreen
 
@@ -133,32 +125,13 @@ labelRenderer.setSize( window.innerWidth, window.innerHeight );
 labelRenderer.domElement.style.position = 'fixed';
 labelRenderer.domElement.style.top = '0px';
 labelRenderer.domElement.style.width = '99%';
-// labelRenderer.domElement.style.height = '98%';
 document.body.appendChild( labelRenderer.domElement );
 
 const labelRenderer3D = new CSS3DRenderer();
 labelRenderer3D.setSize( window.innerWidth, window.innerHeight );
 labelRenderer3D.domElement.style.position = 'fixed';
 labelRenderer3D.domElement.style.top = '0px';
-// labelRenderer3D.domElement.style.width = '99%';
-// labelRenderer.domElement.style.height = '98%';
 document.body.appendChild( labelRenderer3D.domElement );
-
-//scroll function
-
-// var lastScrollTop = 0;
-
-// window.addEventListener("scroll", async function(){ 
-//    var st = window.pageYOffset || document.documentElement.scrollTop;
-//    if (st > lastScrollTop){
-//     var element = document.getElementById("second-screen-t");
-    
-//     tweenCamera(new THREE.Vector3( 0, -100, 0 ));
-//    } else {
-//     camera.position.y = 4
-//    }
-//    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-// }, false);
 
 
 const arrowUpSecondScreenElement = document.getElementById('second-screen-up');
@@ -217,7 +190,6 @@ arrowUpFourthScreenElement.onclick = function() {
 const mywork = document.getElementById('my-work-title')
 const myworkLabel = new CSS2DObject( mywork );
 myworkLabel.position.set( 0, -98.6, 23);
-// myworkLabel.scale.set(0.001, 0.001, 0.001)
 scene.add(myworkLabel)
 
 
@@ -225,11 +197,10 @@ let arcadeMachine;
 
 const loader = new GLTFLoader();
 
-loader.load('/static/scene.gltf', function(gltf) {
+loader.load('/static/Arcade/scene.gltf', function(gltf) {
   const model = gltf.scene;
   model.position.y = -101;
   model.position.z = 23;
-  // model.rotation.y = 0.5
   model.scale.set(0.012, 0.012, 0.012);
   const twentyfourstroke = new THREE.TextureLoader().load('/24Stroke/24stroke-log.png')
   model.children[0].children[0].children[0].children[0].children[0].material.color.setHex(0x000000)
@@ -330,12 +301,9 @@ loader.load('/static/City/scene.gltf', function(gltf) {
   model2.getObjectByName('Buildings_2').clear()
   model2.getObjectByName('Alpha_mesh').clear()
   model2.getObjectByName('Bridge_base').clear()
-  // model2.getObjectByName('Lamp_post_1').clear()
   model2.getObjectByName('Lamp_post').clear()
   model2.getObjectByName('Pool_Water').clear()
   model2.getObjectByName('Play_garden').clear()
-  // model2.getObjectByName('Sun').clear()
-  // model2.getObjectByName('Sun').clear()
   scene.add(model2);
 })
 
@@ -502,7 +470,6 @@ function moveBox(mouse, degreeLimit) {
     monsterTitleLabel.rotation.x = degToRad(degrees.y);
   }
 }
-// console.log(plastyLogo)
 
 function getMouseDegrees(x, y, degreeLimit) {
   let dx = 0,
@@ -925,20 +892,6 @@ scene.add(pyramid12)
 scene.add(pyramidedges12)
 
 
-// const rgbeloader = new RGBELoader()
-
-
-// rgbeloader.load('static/c.hdr', function(texture) {
-//   texture.mapping = THREE.EquirectangularReflectionMapping;
-  // loader.load('/static/Delorean/scene.gltf', function(gltf) {
-  //   const Delorean = gltf.scene;
-  //   Delorean.position.set(-10, -404, 10)
-  //   Delorean.rotation.y = Math.PI * -0.5
-  //   Delorean.scale.set(1.1, 1.1, 1.1);
-  //   scene.add(Delorean);
-  // })
-// })
-
 let mixer;
 let Me;
 let MeClips;
@@ -949,38 +902,16 @@ loader.load('/static/Me/blenderwalkV2.glb', function(gltf) {
     Me.scale.set(2.7, 2.7, 2.7);
     Me.rotation.y = Math.PI * -0.1
     scene.add(Me);
-    // action.setLoop(THREE.LoopOnce)
-    // action.play();
   })
 
 function thirdScreenAnimation() {
   mixer = new THREE.AnimationMixer(Me);
-  // const clips = gltf.animations;
-  // const clipWalk = THREE.AnimationClip.findByName(MeClips, 'Walk.001')
-  // const actionWalk = mixer.clipAction(clipWalk)
-  // actionWalk.setLoop(THREE.LoopRepeat, 3.5)
-  // // action.clampWhenFinished = true;
-  // actionWalk.enable = true;
-  // actionWalk.play();
-  // var position = new THREE.Vector3().copy( Me.position );
-  // var targetPosition = new THREE.Vector3(2 , -404, 25)
-  // new TWEEN.Tween( position )
-  //   .to( targetPosition, 4750 )
-  //   .easing( TWEEN.Easing.Linear.None )
-  //   .onUpdate( function () {
-  //       Me.position.copy( position );
-  //   } )
-  //   .onComplete( function () {
-  //     Me.position.copy( targetPosition );
-      // Me.rotation.y = Math.PI * -0.1;
       const clipWave = THREE.AnimationClip.findByName(MeClips, 'Wave')
       const actionWave = mixer.clipAction(clipWave)
       actionWave.setLoop(THREE.LoopOnce)
-      // action.clampWhenFinished = true;
       actionWave.enable = true;
       actionWave.play();
-    // } )
-    // .start();
+
 }
 
 const lightAboutMe = new THREE.PointLight(0xffffff, 2, 20)
@@ -988,11 +919,6 @@ lightAboutMe.position.x = 0
 lightAboutMe.position.y = -399
 lightAboutMe.position.z = 30
 scene.add(lightAboutMe)
-// const lightAboutMe2 = new THREE.PointLight(0xffffff, 0.1, 100)
-// lightAboutMe2.position.x = 0
-// lightAboutMe2.position.y = -403
-// lightAboutMe2.position.z = 19
-// scene.add(lightAboutMe2)
 
 
 const AboutMeTitle = document.getElementById('about-me-title')
@@ -1074,31 +1000,21 @@ let mouse = new THREE.Vector2();
 let hover = false;
 let currentIntersection = null;
 document.addEventListener('pointermove', function(e) {
-  // var mousecords = getMousePos(e);
-  // moveBox(mousecords, 5);
   onMouseMove(e)
 })
 document.addEventListener('click', function(e) {
-  // var mousecords = getMousePos(e);
-  // moveBox(mousecords, 5);
   onClick(e)
 })
 
 function onClick(event) {
-  // event.preventDefault();
   mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
   mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
   raycaster.setFromCamera(mouse, camera);
   const objects = [javascript, csharp, dotnet, spring, react, vue];
   const intersects = raycaster.intersectObjects(objects, true);
   if (intersects.length > 0) {
-    // currentIntersection = intersects[0].object;
-    // currentIntersection.material.color.set(0xffff00);
-    // hover = true
-    // const newPosition = new THREE.Vector3(currentIntersection.position.x, currentIntersection.position.y + 1, currentIntersection.position.z)
     console.log(intersects[0].object)
     if (intersects[0].object.parent.name == "javascript") {
-      // location.href = "https://www.javascript.com/"
       window.open("https://www.javascript.com/")
     }
     if (intersects[0].object.parent.name == "csharp"){
@@ -1116,19 +1032,9 @@ function onClick(event) {
     if(intersects[0].object.parent.name == "react") {
     window.open("https://www.reactjs.org/")
     }
-    // document.body.style.cursor = "pointer"
-  } else {
-    if (intersects.length <= 0) {
-      // currentIntersection.material.color.set(0xff0000);
-      // currentIntersection = null;
-      // document.body.style.cursor = "default"
-      // hover = false
-    }
   }
 }
 function onMouseMove(event, object) {
-  // console.log("click")
-  // event.preventDefault();
   mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
   mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
   raycaster.setFromCamera(mouse, camera);
@@ -1136,34 +1042,15 @@ function onMouseMove(event, object) {
   const intersects = raycaster.intersectObjects(objects, true);
   if (intersects.length > 0 && currentIntersection == null) {
     currentIntersection = intersects[0].object;
-    // currentIntersection.material.color.set(0xffff00);
-    // hover = true
-    // const newPosition = new THREE.Vector3(currentIntersection.position.x, currentIntersection.position.y + 1, currentIntersection.position.z)
     document.body.style.cursor = "pointer"
   } else {
     if (intersects.length <= 0 && currentIntersection !== null) {
-      // currentIntersection.material.color.set(0xff0000);
       currentIntersection = null;
       document.body.style.cursor = "default"
-      // hover = false
     }
   }
   renderer.render(scene, camera);
 }
-
-// async function animationSkills(object, targetPosition) {
-//   var position = object.rotation;
-//   await new TWEEN.Tween( position )
-//         .to( {z: Math.PI * 2}, 1500 )
-//         .easing( TWEEN.Easing.Linear.None )
-//         // .onUpdate( function () {
-//         //     object.position.copy( position );
-//         // } )
-//         // .onComplete( function () {
-//         //     object.rotation.copy(position);
-//         // } )
-//         .start();
-// }
 
 const backgroundTextureThirdScreen = new THREE.TextureLoader().load('Scenery/Scenery.png'); 
 const backgroundThirdScreenGeometry = new THREE.PlaneGeometry( 192, 108, 20, 20 );
