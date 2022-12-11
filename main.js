@@ -1,13 +1,13 @@
 import './style.css'
 import * as THREE from 'three'
 import TWEEN from '@tweenjs/tween.js'
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+// import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 import {CSS2DObject, CSS2DRenderer} from 'three/examples/jsm/renderers/CSS2DRenderer'
 import {CSS3DObject, CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer'
-import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader'
+// import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader'
 import { degToRad } from 'three/src/math/MathUtils'
-import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader'
+// import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader'
 
 //Setup of scene
 
@@ -23,9 +23,36 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30)
 camera.position.setX(0)
-camera.position.setY(-400)
+camera.position.setY(4)
 
 renderer.render(scene, camera)
+
+
+
+//Loader
+
+
+//threejs loader
+
+const loadingManager = new THREE.LoadingManager( () => {
+	
+  const loadingScreen = document.getElementById( 'loading-screen' );
+  loadingScreen.classList.add( 'fade-out' );
+  
+  // optional: remove loader from DOM via event listener
+  loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+  
+} );
+
+const loader = new GLTFLoader(loadingManager);
+const imageloader = new THREE.ImageLoader(loadingManager)
+
+
+function onTransitionEnd( event ) {
+
+	event.target.remove();
+	
+}
 
 //plane for underneath the grid
 
@@ -187,15 +214,17 @@ arrowUpFourthScreenElement.onclick = function() {
 }
 
 
-const mywork = document.getElementById('my-work-title')
-const myworkLabel = new CSS2DObject( mywork );
-myworkLabel.position.set( 0, -98.6, 23);
-scene.add(myworkLabel)
+imageloader.load("Words/mywork.png", function(image){
+  image.width = image.width * 0.18;
+  image.height = image.height * 0.18;
+  const myworkLabel = new CSS2DObject( image );
+  myworkLabel.position.set( 0, -98.6, 23);
+  scene.add(myworkLabel)
+})
 
 
 let arcadeMachine;
 
-const loader = new GLTFLoader();
 
 loader.load('/static/Arcade/scene.gltf', function(gltf) {
   const model = gltf.scene;
@@ -265,45 +294,13 @@ loader.load('/static/Arcade/scene.gltf', function(gltf) {
 })
 
 
-loader.load('/static/City/scene.gltf', function(gltf) {
+loader.load('/static/City/city.glb', function(gltf) {
   const model2 = gltf.scene;
   model2.position.y = -118;
   model2.position.z = 8;
   model2.position.x = -1.8
   model2.rotation.y = Math.PI * -0.5
   model2.scale.set(0.001, 0.001, 0.001);
-  model2.getObjectByName('Buildings_adds_top').clear()
-  model2.getObjectByName('Hovercars').clear()
-  model2.getObjectByName('Publicity_lights').clear()
-  model2.getObjectByName('Red_dish').clear()
-  model2.getObjectByName('Terrain').clear()
-  model2.getObjectByName('Trash').clear()
-  model2.getObjectByName('Streets_outline').clear()
-  model2.getObjectByName('Beacons').clear()
-  model2.getObjectByName('Solar_panel').clear()
-  model2.getObjectByName('Solar_panel_base').clear()
-  model2.getObjectByName('Buildings_1_top').clear()
-  model2.getObjectByName('Red_dish').clear()
-  model2.getObjectByName('Buildings_1').clear()
-  model2.getObjectByName('Bridge_outline').clear()
-  model2.getObjectByName('Bridge_support').clear()
-  model2.getObjectByName('Sidewalks_outline').clear()
-  model2.getObjectByName('Buildings_adds').clear()
-  model2.getObjectByName('Buildings_2_top').clear()
-  model2.getObjectByName('Terrain_base').clear()
-  model2.getObjectByName('Sidewalks').clear()
-  model2.getObjectByName('Streets').clear()
-  model2.getObjectByName('Sun').clear()
-  model2.getObjectByName('Streets_2').clear()
-  model2.getObjectByName('Hyper_loop').clear()
-  model2.getObjectByName('Trees_Base').clear()
-  model2.getObjectByName('Trees_Terrain').clear()
-  model2.getObjectByName('Buildings_2').clear()
-  model2.getObjectByName('Alpha_mesh').clear()
-  model2.getObjectByName('Bridge_base').clear()
-  model2.getObjectByName('Lamp_post').clear()
-  model2.getObjectByName('Pool_Water').clear()
-  model2.getObjectByName('Play_garden').clear()
   scene.add(model2);
 })
 
@@ -319,7 +316,6 @@ lightcityarcade.position.x = -3
 lightcityarcade.position.y = -98
 lightcityarcade.position.z = 30
 scene.add(lightcityarcade)
-
 
 
 
@@ -377,11 +373,16 @@ const plastyBackButtonLabel = new CSS3DObject( plastyBackButton );
 plastyBackButtonLabel.position.set( 300, -96.85, 20);
 plastyBackButtonLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(plastyBackButtonLabel);
-const plastyLogo = document.getElementById('plasty-logo');
-const plastyLogoLabel = new CSS3DObject( plastyLogo );
-plastyLogoLabel.position.set( 298, -97.95, 20);
-plastyLogoLabel.scale.set(0.008, 0.008, 0.008);
-scene.add(plastyLogoLabel)
+
+var plastyLogoLabel;
+imageloader.load("Plasty/icon.png", function(image){
+  image.width = image.width * 0.0022;
+  image.height = image.height * 0.0022;
+  plastyLogoLabel = new CSS3DObject( image );
+  plastyLogoLabel.position.set( 298, -97.95, 20);
+  scene.add(plastyLogoLabel)
+})
+
 const plastyTitle = document.getElementById('plasty-title');
 const plastyTitleLabel = new CSS3DObject( plastyTitle );
 plastyTitleLabel.position.set( 301, -97.95, 20);
@@ -428,8 +429,8 @@ function moveBox(mouse, degreeLimit) {
     titleplasty3.rotation.x = degToRad(degrees.y);
     titleplastyBlockLine3.rotation.y = degToRad(degrees.x);
     titleplastyBlockLine3.rotation.x = degToRad(degrees.y);
-    plastyLogoLabel.rotation.y = degToRad(degrees.x);
-    plastyLogoLabel.rotation.x = degToRad(degrees.y);
+    plastyLogoLabel.rotation.y = degToRad(degrees.x)
+    plastyLogoLabel.rotation.x = degToRad(degrees.y)
     plastyTitleLabel.rotation.y = degToRad(degrees.x);
     plastyTitleLabel.rotation.x = degToRad(degrees.y);
   }
@@ -567,11 +568,21 @@ const twentyfourstrokeBackButtonLabel = new CSS3DObject( twentyfourstrokeBackBut
 twentyfourstrokeBackButtonLabel.position.set( 400, -96.85, 20);
 twentyfourstrokeBackButtonLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(twentyfourstrokeBackButtonLabel);
-const twentyfourstrokeLogo = document.getElementById('twentyfourstroke-logo');
-const twentyfourstrokeLogoLabel = new CSS3DObject( twentyfourstrokeLogo );
-twentyfourstrokeLogoLabel.position.set( 397.4, -97.90, 20);
-twentyfourstrokeLogoLabel.scale.set(0.006, 0.006, 0.006);
-scene.add(twentyfourstrokeLogoLabel)
+
+var twentyfourstrokeLogoLabel;
+imageloader.load("24Stroke/24stroke-logo.png", function(image){
+  image.width = image.width * 0.0044;
+  image.height = image.height * 0.0044;
+  twentyfourstrokeLogoLabel = new CSS3DObject( image );
+  twentyfourstrokeLogoLabel.position.set( 397.4, -97.90, 20);
+  scene.add(twentyfourstrokeLogoLabel)
+})
+
+// const twentyfourstrokeLogo = document.getElementById('twentyfourstroke-logo');
+// const twentyfourstrokeLogoLabel = new CSS3DObject( twentyfourstrokeLogo );
+// twentyfourstrokeLogoLabel.position.set( 397.4, -97.90, 20);
+// twentyfourstrokeLogoLabel.scale.set(0.006, 0.006, 0.006);
+// scene.add(twentyfourstrokeLogoLabel)
 const twentyfourstrokeTitle = document.getElementById('twentyfourstroke-title');
 const twentyfourstrokeTitleLabel = new CSS3DObject( twentyfourstrokeTitle );
 twentyfourstrokeTitleLabel.position.set( 401, -97.95, 20);
@@ -645,11 +656,21 @@ const monsterBackButtonLabel = new CSS3DObject( monsterBackButton );
 monsterBackButtonLabel.position.set( 500, -96.85, 20);
 monsterBackButtonLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(monsterBackButtonLabel);
-const monsterLogo = document.getElementById('monster-logo');
-const monsterLogoLabel = new CSS3DObject( monsterLogo );
-monsterLogoLabel.position.set( 496.5, -97.95, 20);
-monsterLogoLabel.scale.set(0.004, 0.004, 0.004);
-scene.add(monsterLogoLabel)
+
+var monsterLogoLabel;
+imageloader.load("Monster Collection/icon-512x512-removebg-preview.png", function(image){
+  image.width = image.width * 0.0022;
+  image.height = image.height * 0.0022;
+  monsterLogoLabel = new CSS3DObject( image );
+  monsterLogoLabel.position.set( 496.5, -97.95, 20);
+  scene.add(monsterLogoLabel)
+})
+
+// const monsterLogo = document.getElementById('monster-logo');
+// const monsterLogoLabel = new CSS3DObject( monsterLogo );
+// monsterLogoLabel.position.set( 496.5, -97.95, 20);
+// monsterLogoLabel.scale.set(0.004, 0.004, 0.004);
+// scene.add(monsterLogoLabel)
 const monsterTitle = document.getElementById('monster-title');
 const monsterTitleLabel = new CSS3DObject( monsterTitle );
 monsterTitleLabel.position.set( 501, -97.95, 20);

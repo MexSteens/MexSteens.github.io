@@ -28,6 +28,88 @@ canvas {
   top: 0;
 }
 
+
+.preloader-1 {
+  margin-top: 30vh;
+  height: 12px;
+}
+
+
+.loader {
+  color: #fff;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.4rem;
+}
+
+.preloader-1 .line {
+  width: 0.6rem;
+  height: 2.4rem;
+  background: #fff;
+  margin: 0 .2rem;
+  display: inline-block;
+  animation: opacity-2 1000ms infinite ease-in-out;
+}
+
+.preloader-1 .line-1, .preloader-2 .line-1 { animation-delay: 800ms; }
+.preloader-1 .line-2, .preloader-2 .line-2 { animation-delay: 600ms; }
+.preloader-1 .line-3, .preloader-2 .line-3 { animation-delay: 400ms; }
+.preloader-1 .line-4, .preloader-2 .line-4 { animation-delay: 200ms; }
+.preloader-1 .line-6, .preloader-2 .line-6 { animation-delay: 200ms; }
+.preloader-1 .line-7, .preloader-2 .line-7 { animation-delay: 400ms; }
+.preloader-1 .line-8, .preloader-2 .line-8 { animation-delay: 600ms; }
+.preloader-1 .line-9, .preloader-2 .line-9 { animation-delay: 800ms; }
+
+@keyframes opacity-1 { 
+  0% { 
+    opacity: 1;
+  }
+  50% { 
+    opacity: 0;
+  }
+  100% { 
+    opacity: 1;
+  }  
+}
+
+@keyframes opacity-2 { 
+  0% { 
+    opacity: 1;
+    height: 3rem;
+  }
+  50% { 
+    opacity: 0;
+    height: 2.4rem;
+  }
+  100% { 
+    opacity: 1;
+    height: 3rem;
+  }  
+}
+
+
+#loading-screen {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	opacity: 1;
+ 	transition: 1s opacity;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+#loading-screen.fade-out {
+    opacity: 0;
+}
+
 /* section {
   display: flex;
   position: relative;
@@ -93,7 +175,7 @@ i {
 
 #my-work-title {
   width: 36vw;
-  height: 11vh;
+  height: 10vh;
 }
 
 #plasty {

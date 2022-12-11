@@ -9,17 +9,29 @@
   </head>
   <body>
     <canvas id="bg"></canvas>
-    <!-- <section class="startscreen"> -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="preloader-1">
+        <div class="loader">Loading</div>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+        <span class="line line-4"></span>
+        <span class="line line-5"></span>
+        <span class="line line-6"></span>
+        <span class="line line-7"></span>
+        <span class="line line-8"></span>
+        <span class="line line-9"></span>
+      </div>
+    </div>
     <div class="title" id="test">
       <p class="profession">Software engineer</p>
       <img class="name" src="Words/MexSteens.png" alt="Mex Steens">
       <p class="start">Click to start</p>
     </div>
-    <!-- </section> -->
-    <!-- <section class="second-screen" id="second-screen-t"> -->
     <div class="my-work" id="second-screen">
       <i class="material-icons" id="second-screen-up">arrow_upward</i>
-      <img id="my-work-title" src="Words/mywork.png" alt="my work">
+      <!-- <img id="my-work-title" src="Words/mywork.png" alt="my work"> -->
+      <div id="context2"></div>
       <div class="plasty-rotate" id="plasty-rotate-div">
         <p id="plasty">Plasty</p>
       </div>
@@ -38,18 +50,13 @@
       </div>
       <i class="material-icons" id="second-screen-down">arrow_downward</i>
     </div>
-    <!-- </section> -->
     <div class="plasty-page">
       <div id="plasty-logo-title">
-        <img class="image-information-page" src="Plasty/icon.png" alt="Plasty logo" id="plasty-logo">
+        <!-- <img class="image-information-page" src="Plasty/icon.png" alt="Plasty logo" id="plasty-logo"> -->
         <h1 class="title-information-page" id="plasty-title">Plasty</h1>
       </div>
-      <!-- <img src="Plasty/demo-1" alt="plasty demo screenshot" id="plasty-demo-1">
-      <img src="Plasty/demo-2" alt="plasty demo screenshot" id="plasty-demo-2"> -->
       <div id="plasty-description-buttons">
         <p class="description-information-page" id="plasty-description">Plasty is the very first proper mobile app<br>which I made. The purpose of the application<br>is to reduce plastic waste.<br><br>The way I wanted to achieve this is by showing<br>the products on the app which use a lot of excessive<br>plastic packaging.<br>Users can scan products which have a lot of excess<br>plastic packaging and the more a product is scanned,<br>the assumption is made that it has a lot of excess<br>packaging so it will show up in the app.<br><br>I developed the front-end in VueJS with Bootstrap<br>and the back-end REST API is developed<br>by a fellow student in Flask<br>(P.S. the app is also downloadable for any device).</p>
-        <!-- <button id="view-website">View website</button>
-        <button id="view-github">View repository</button> -->
         <button id="plasty-view-website" class="button-64" role="button"><span class="text">View website</span></button>
         <button id="plasty-view-repository" class="button-64" role="button"><span class="text">View repository</span></button>
       </div>
@@ -57,15 +64,11 @@
     </div>
     <div class="twentyfourstroke-page">
       <div id="twentyfourstroke-logo-title">
-        <img class="image-information-page" src="24Stroke/24stroke-logo.png" alt="24stroke logo" id="twentyfourstroke-logo">
+        <!-- <img class="image-information-page" src="24Stroke/24stroke-logo.png" alt="24stroke logo" id="twentyfourstroke-logo"> -->
         <h1 class="title-information-page" id="twentyfourstroke-title">24Stroke</h1>
       </div>
-      <!-- <img src="Plasty/demo-1" alt="plasty demo screenshot" id="plasty-demo-1">
-      <img src="Plasty/demo-2" alt="plasty demo screenshot" id="plasty-demo-2"> -->
       <div id="twentyfourstroke-description-buttons">
         <p class="description-information-page" id="twentyfourstroke-description">24Stroke is a completly self-build webshop<br>which sells moped parts.<br><br>The webshop offers every functionality<br>a webshop needs and more. You can create accounts,<br> save shipping address, search for products,<br>filter on specific mopeds, add products to your cart,<br>pay for your products and more!<br>This project is still in the works since<br>it uses dummy data and stock images.<br><br>The front-end is built in VueJS with Bootstrap<br> and the back-end REST API is built in Django.</p>
-        <!-- <button id="view-website">View website</button>
-        <button id="view-github">View repository</button> -->
         <button id="twentyfourstroke-view-website" class="button-64" role="button"><span class="text">View website</span></button>
         <button id="twentyfourstroke-view-repository" class="button-64" role="button"><span class="text">View repository</span></button>
       </div>
@@ -73,15 +76,11 @@
     </div>
     <div class="monster-page">
       <div id="monster-logo-title">
-        <img class="image-information-page" src="Monster Collection/icon-512x512-removebg-preview.png" alt="Monster logo" id="monster-logo">
+        <!-- <img class="image-information-page" src="Monster Collection/icon-512x512-removebg-preview.png" alt="Monster logo" id="monster-logo"> -->
         <h1 class="title-information-page" id="monster-title">Monster Energy Collection</h1>
       </div>
-      <!-- <img src="Plasty/demo-1" alt="plasty demo screenshot" id="plasty-demo-1">
-      <img src="Plasty/demo-2" alt="plasty demo screenshot" id="plasty-demo-2"> -->
       <div id="monster-description-buttons">
         <p class="description-information-page" id="monster-description">In this app you are able to collect different cans<br>of the Monster Energy drink.<br><br>Some of the functionalities which are implented are:<br>creating accounts, having proper authorization<br>depending on the account, scanning barcodes,<br>leaving comments, leaving ratings and a few more.<br><br>The focus of this project was to make a fully<br>functioning CRUD application which is tested<br> every step of the way and is also secure.<br>I have implemented intergration testing,<br>unit testing, end-to-end testing and UX tests.<br>The application is also protected against<br>the OWASP top 10 vulnerabilities and a few more.<br><br>The front-end is written in ReactJS with Tailwind<br>and the back-end REST API is written in Spring Boot.</p>
-        <!-- <button id="view-website">View website</button>
-        <button id="view-github">View repository</button> -->
         <button id="monster-view-website" class="button-64" role="button"><span class="text">View website</span></button>
         <button id="monster-view-repository" class="button-64" role="button"><span class="text">View repository</span></button>
       </div>
@@ -89,7 +88,6 @@
     </div>
     <div class="third-page">
       <i class="material-icons" id="third-screen-up">arrow_upward</i>
-      <!-- <img id="my-work-title" src="my-work.png" alt="my work"> -->
       <h1 id="about-me-title">About me</h1>
       <p id="about-me-description">Fast, driven and inquisitive. That's how I would describe myself in 3 words.<br>I have a true passion for learning and love being challenged.<br>Coding exactly ticks those boxes for me. Below you can see<br>which frameworks and languages I'm most experienced in.<br>Throughout my journey I have picked up skills like<br>S.O.L.I.D., Agile development and Scrum.</p>
       <i class="material-icons" id="third-screen-down">arrow_downward</i>
