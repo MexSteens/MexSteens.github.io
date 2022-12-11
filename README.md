@@ -12,3 +12,9 @@ Run server
 ```
 npm run dev
 ```
+
+### What did I learn?
+I learned some unexpected things, I learned quite a bit about Blender which is 3d modeling software. I also learned how to create animations in blender and rig them. I learned how to think in 3D instead of 2D, which was the biggest challenge of them all.
+
+### What is there left to do?
+I want to clean up my code by programming it Object Oriented. This will look much better and will allow me to have less code.
