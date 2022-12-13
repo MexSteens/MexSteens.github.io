@@ -383,6 +383,15 @@ imageloader.load("Plasty/icon.png", function(image){
   scene.add(plastyLogoLabel)
 })
 
+var plastyDemoLabel;
+imageloader.load("Plasty/plasty-account.png", function(image){
+  image.width = image.width * 0.005;
+  image.height = image.height * 0.005;
+  plastyDemoLabel = new CSS3DObject( image );
+  plastyDemoLabel.position.set( 296.85, -101.05, 20);
+  scene.add(plastyDemoLabel)
+})
+
 const plastyTitle = document.getElementById('plasty-title');
 const plastyTitleLabel = new CSS3DObject( plastyTitle );
 plastyTitleLabel.position.set( 301, -97.95, 20);
@@ -390,17 +399,17 @@ plastyTitleLabel.scale.set(0.03, 0.03, 0.03);
 scene.add(plastyTitleLabel);
 const plastyDescription = document.getElementById('plasty-description');
 const plastyDescriptionLabel = new CSS3DObject( plastyDescription );
-plastyDescriptionLabel.position.set( 302, -100.3, 20);
+plastyDescriptionLabel.position.set( 302, -100.5, 20);
 plastyDescriptionLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(plastyDescriptionLabel);
 const plastyWebsiteButton = document.getElementById('plasty-view-website');
 const plastyWebsiteButtonLabel = new CSS3DObject( plastyWebsiteButton );
-plastyWebsiteButtonLabel.position.set( 300.24, -102, 20);
+plastyWebsiteButtonLabel.position.set( 300.24, -102.3, 20);
 plastyWebsiteButtonLabel.scale.set(0.006, 0.006, 0.006);
 scene.add(plastyWebsiteButtonLabel);
 const plastyRepositoryButton = document.getElementById('plasty-view-repository');
 const plastyRepositoryButtonLabel = new CSS3DObject( plastyRepositoryButton );
-plastyRepositoryButtonLabel.position.set( 303.71, -102, 20);
+plastyRepositoryButtonLabel.position.set( 303.71, -102.3, 20);
 plastyRepositoryButtonLabel.scale.set(0.006, 0.006, 0.006);
 scene.add(plastyRepositoryButtonLabel);
 
@@ -429,8 +438,10 @@ function moveBox(mouse, degreeLimit) {
     titleplasty3.rotation.x = degToRad(degrees.y);
     titleplastyBlockLine3.rotation.y = degToRad(degrees.x);
     titleplastyBlockLine3.rotation.x = degToRad(degrees.y);
-    plastyLogoLabel.rotation.y = degToRad(degrees.x)
-    plastyLogoLabel.rotation.x = degToRad(degrees.y)
+    plastyLogoLabel.rotation.y = degToRad(degrees.x);
+    plastyLogoLabel.rotation.x = degToRad(degrees.y);
+    plastyDemoLabel.rotation.y = degToRad(degrees.x);
+    plastyDemoLabel.rotation.x = degToRad(degrees.y);
     plastyTitleLabel.rotation.y = degToRad(degrees.x);
     plastyTitleLabel.rotation.x = degToRad(degrees.y);
   }
@@ -467,6 +478,8 @@ function moveBox(mouse, degreeLimit) {
     titlemonsterBlockLine3.rotation.x = degToRad(degrees.y);
     monsterLogoLabel.rotation.y = degToRad(degrees.x);
     monsterLogoLabel.rotation.x = degToRad(degrees.y);
+    monsterDemoLabel.rotation.y = degToRad(degrees.x);
+    monsterDemoLabel.rotation.x = degToRad(degrees.y);
     monsterTitleLabel.rotation.y = degToRad(degrees.x);
     monsterTitleLabel.rotation.x = degToRad(degrees.y);
   }
@@ -666,11 +679,15 @@ imageloader.load("Monster Collection/icon-512x512-removebg-preview.png", functio
   scene.add(monsterLogoLabel)
 })
 
-// const monsterLogo = document.getElementById('monster-logo');
-// const monsterLogoLabel = new CSS3DObject( monsterLogo );
-// monsterLogoLabel.position.set( 496.5, -97.95, 20);
-// monsterLogoLabel.scale.set(0.004, 0.004, 0.004);
-// scene.add(monsterLogoLabel)
+var monsterDemoLabel;
+imageloader.load("Monster Collection/monster-can.png", function(image){
+  image.width = image.width * 0.0058;
+  image.height = image.height * 0.0058;
+  monsterDemoLabel = new CSS3DObject( image );
+  monsterDemoLabel.position.set( 496.85, -101.07, 20);
+  scene.add(monsterDemoLabel)
+})
+
 const monsterTitle = document.getElementById('monster-title');
 const monsterTitleLabel = new CSS3DObject( monsterTitle );
 monsterTitleLabel.position.set( 501, -97.95, 20);

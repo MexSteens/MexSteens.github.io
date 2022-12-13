@@ -9,17 +9,6 @@
     <title>Mex Portfolio</title>
   </head>
   <body>
-    <!-- <script type="module" src="/main.js"></script> -->
-    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.147.0/build/three.module.js"
-          "three/addons/": "https://unpkg.com/three@0.147.0/examples/jsm/"
-        }
-      }
-    </script>
-    <script type="module" src="/main.js"></script>
     <canvas id="bg"></canvas>
     <div class="loading-screen" id="loading-screen">
       <div class="preloader-1">
@@ -70,7 +59,7 @@
       <div id="plasty-description-buttons">
         <p class="description-information-page" id="plasty-description">Plasty is the very first proper mobile app<br>which I made. The purpose of the application<br>is to reduce plastic waste.<br><br>The way I wanted to achieve this is by showing<br>the products on the app which use a lot of excessive<br>plastic packaging.<br>Users can scan products which have a lot of excess<br>plastic packaging and the more a product is scanned,<br>the assumption is made that it has a lot of excess<br>packaging so it will show up in the app.<br><br>I developed the front-end in VueJS with Bootstrap<br>and the back-end REST API is developed<br>by a fellow student in Flask<br>(P.S. the app is also downloadable for any device).</p>
         <button id="plasty-view-website" class="button-64" role="button"><span class="text">View website</span></button>
-        <button id="plasty-view-repository" class="button-64" role="button"><span class="text">View repository</span></button>
+        <a id="plasty-view-repository" href="https://github.com/MexSteens/Plasty" target="_blank"><button class="button-64" role="button"><span class="text">View repository</span></button></a>
       </div>
       <button id="plasty-back" class="back-button">Go back</button>
     </div>
@@ -82,7 +71,7 @@
       <div id="twentyfourstroke-description-buttons">
         <p class="description-information-page" id="twentyfourstroke-description">24Stroke is a completly self-build webshop<br>which sells moped parts.<br><br>The webshop offers every functionality<br>a webshop needs and more. You can create accounts,<br> save shipping address, search for products,<br>filter on specific mopeds, add products to your cart,<br>pay for your products and more!<br>This project is still in the works since<br>it uses dummy data and stock images.<br><br>The front-end is built in VueJS with Bootstrap<br> and the back-end REST API is built in Django.</p>
         <button id="twentyfourstroke-view-website" class="button-64" role="button"><span class="text">View website</span></button>
-        <button id="twentyfourstroke-view-repository" class="button-64" role="button"><span class="text">View repository</span></button>
+        <a id="twentyfourstroke-view-repository" href="https://github.com/MexSteens" target="_blank"><button class="button-64" role="button" ><span class="text">View repository</span></button></a>
       </div>
       <button id="twentyfourstroke-back" class="back-button">Go back</button>
     </div>
@@ -94,7 +83,7 @@
       <div id="monster-description-buttons">
         <p class="description-information-page" id="monster-description">In this app you are able to collect different cans<br>of the Monster Energy drink.<br><br>Some of the functionalities which are implented are:<br>creating accounts, having proper authorization<br>depending on the account, scanning barcodes,<br>leaving comments, leaving ratings and a few more.<br><br>The focus of this project was to make a fully<br>functioning CRUD application which is tested<br> every step of the way and is also secure.<br>I have implemented intergration testing,<br>unit testing, end-to-end testing and UX tests.<br>The application is also protected against<br>the OWASP top 10 vulnerabilities and a few more.<br><br>The front-end is written in ReactJS with Tailwind<br>and the back-end REST API is written in Spring Boot.</p>
         <button id="monster-view-website" class="button-64" role="button"><span class="text">View website</span></button>
-        <button id="monster-view-repository" class="button-64" role="button"><span class="text">View repository</span></button>
+        <a id="monster-view-repository" href="https://github.com/MexSteens/MonsterEnergyCollection" target="_blank"><button class="button-64" role="button"><span class="text">View repository</span></button></a>
       </div>
       <button id="monster-back" class="back-button">Go back</button>
     </div>
@@ -124,6 +113,7 @@
         </div>
       </div>
     </div>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
 
