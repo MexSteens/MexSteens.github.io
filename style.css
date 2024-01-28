@@ -2,17 +2,17 @@
 
 @font-face {
   font-family: neon;
-  src: url(Fonts/neon.ttf);
+  src: url(/Fonts/neon.ttf);
 }
 
 @font-face {
   font-family: overgrow;
-  src: url(Fonts/Overgrow-Demo.ttf);
+  src: url(/Fonts/Overgrow-Demo.ttf);
 }
 
 @font-face {
   font-family: atari-classic;
-  src: url(Fonts/AtariClassic-gry3.ttf);
+  src: url(/Fonts/AtariClassic-gry3.ttf);
 }
 
 /* h1, h2, h3, h4, h5, p {
@@ -65,7 +65,7 @@ canvas {
 }
 
 
-.preloader-1 {
+/* .preloader-1 {
   margin-top: 30vh;
   height: 12px;
 }
@@ -144,7 +144,7 @@ canvas {
 
 #loading-screen.fade-out {
     opacity: 0;
-}
+} */
 
 /* section {
   display: flex;
@@ -508,4 +508,9 @@ i {
   color: black;
   transition: 0.5s;
   cursor: pointer;
+}
+
+#iframe-24stroke {
+  width: 440px;
+  height: auto;
 }

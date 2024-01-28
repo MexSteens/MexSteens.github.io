@@ -5,6 +5,7 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 import {CSS2DObject, CSS2DRenderer} from 'three/examples/jsm/renderers/CSS2DRenderer'
 import {CSS3DObject, CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer'
 import { degToRad } from 'three/src/math/MathUtils'
+import '@justinribeiro/lite-youtube'
 
 //Setup of scene
 
@@ -18,9 +19,13 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+// camera.position.setZ(30)
+// camera.position.setX(0)
+// camera.position.setY(4)
+
 camera.position.setZ(30)
 camera.position.setX(0)
-camera.position.setY(4)
+camera.position.setY(-400)
 
 renderer.render(scene, camera)
 
@@ -62,7 +67,7 @@ scene.add( planeobject );
 
 //background plane
 
-const backgroundTexture = new THREE.TextureLoader().load('Scenery/angryimg.png'); 
+const backgroundTexture = new THREE.TextureLoader().load('Scenery/angryimg.webp'); 
 const planeGeometry1 = new THREE.PlaneGeometry( 500, 200, 20, 20 );
 const planematerial1 = new THREE.MeshBasicMaterial( { map: backgroundTexture } );
 const planeobject1 = new THREE.Mesh( planeGeometry1, planematerial1 );
@@ -85,7 +90,7 @@ for(let i=0;i<6000;i++) {
 let starGeo = new THREE.BufferGeometry().setFromPoints(points);
 
 
-let sprite = new THREE.TextureLoader().load( 'Scenery/whitecirle.png' );
+let sprite = new THREE.TextureLoader().load( 'Scenery/whitecirle.webp' );
 let starMaterial = new THREE.PointsMaterial({
   color: 0xaaaaaa,
   size: 0.7,
@@ -132,7 +137,7 @@ function tweenCamera( targetPosition, duration, linear ) {
 
 //text in 3d so it moves at the same time
 
-const moonDiv = document.getElementById('test')
+const moonDiv = document.getElementById('startPage')
 const moonLabel = new CSS3DObject( moonDiv );
 moonLabel.scale.set(0.01, 0.01, 0.01)
 moonLabel.position.set( 0, 3.8, 17);
@@ -207,11 +212,11 @@ scene.add(arrowUpFourthScreen);
 
 arrowUpFourthScreenElement.onclick = function() {
   tweenCamera(new THREE.Vector3( 0, -400, 30 ), 3000, false);
-  const myTimeout = setTimeout(thirdScreenAnimation, 3000);
+  const myTimeout = setTimeout(thirdScreenAnimation, 2000);
 }
 
 
-imageloader.load("Words/mywork.png", function(image){
+imageloader.load("Words/mywork.webp", function(image){
   image.width = image.width * 0.18;
   image.height = image.height * 0.18;
   const myworkLabel = new CSS2DObject( image );
@@ -223,63 +228,70 @@ imageloader.load("Words/mywork.png", function(image){
 let arcadeMachine;
 
 
-loader.load('/static/Arcade/scene.gltf', function(gltf) {
+loader.load('static/Arcade/Arcade-reduced-2.glb', function(gltf) {
   const model = gltf.scene;
   model.position.y = -101;
   model.position.z = 23;
   model.scale.set(0.012, 0.012, 0.012);
-  const twentyfourstroke = new THREE.TextureLoader().load('/24Stroke/24stroke-log.png')
-  model.children[0].children[0].children[0].children[0].children[0].material.color.setHex(0x000000)
-  model.children[0].children[0].children[0].children[0].children[0].material.color.setHex(0x000000)
-  model.getObjectByName('������������_������_2_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_3_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_4_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_5_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_6_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_8_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_9_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_10_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_11_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_12_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_13_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_14_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_15_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_16_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_16_STEEL2_0').material = new THREE.MeshLambertMaterial(0x454545);
-  model.getObjectByName('������������_������_5_ARCADE_0').material = new THREE.MeshBasicMaterial({map: twentyfourstroke});
-  const twentyfourstroketext = document.getElementById('twentyfourstroke')
-  const twentyfourstrokeLabel = new CSS3DObject( twentyfourstroketext );
-  twentyfourstrokeLabel.position.set( -0.03, -99.23, 23);
-  twentyfourstrokeLabel.scale.set(0.005, 0.005, 0.005);
-  scene.add(twentyfourstrokeLabel)
+
+  model.getObjectByName("������������_������_2_STEEL").material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_3_STEEL').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('Top_plain').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_5_STEEL').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_6_STEEL').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_8_STEEL').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_9_STEEL').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_10_STEE').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_11_STEE').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_12_STEE').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_14_STEE').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_15_STEE').material = new THREE.MeshLambertMaterial(0x454545);
+  model.getObjectByName('������������_������_16_STEE').material = new THREE.MeshLambertMaterial(0x454545);
+
+  const monsterNeon = new THREE.TextureLoader().load('/Monster Collection/monster-neon.webp')
+  monsterNeon.wrapS = THREE.RepeatWrapping; // Repeat horizontally
+  monsterNeon.flipY = false; // Keep the texture orientation
+
+  model.getObjectByName('������������_������_5_ARCAD').material = new THREE.MeshBasicMaterial({map: monsterNeon});
+
+  // const twentyfourstroketext = document.getElementById('twentyfourstroke')
+  // const twentyfourstrokeLabel = new CSS3DObject( twentyfourstroketext );
+  // twentyfourstrokeLabel.position.set( -0.03, -99.23, 23);
+  // twentyfourstrokeLabel.scale.set(0.005, 0.005, 0.005);
+  // scene.add(twentyfourstrokeLabel)
   const twentyfourstrokeclick = document.getElementById('twentyfourstroke-clicked')
   const twentyfourstrokeclickLabel = new CSS3DObject( twentyfourstrokeclick );
   twentyfourstrokeclickLabel.position.set( -0.03, -100, 23.2);
   twentyfourstrokeclickLabel.scale.set(0.0052, 0.0052, 0.0052);
   scene.add(twentyfourstrokeclickLabel)
   const arcademachine2 = model.clone();
+
+  const twentyfourstrokeNeon = new THREE.TextureLoader().load('/24Stroke/24stroke-neon.webp');
+  twentyfourstrokeNeon.wrapS = THREE.RepeatWrapping; // Repeat horizontally
+  twentyfourstrokeNeon.flipY = false; // Keep the texture orientation
+
+  model.getObjectByName('������������_������_5_ARCAD').material = new THREE.MeshBasicMaterial({map: twentyfourstrokeNeon});
+
+
   arcademachine2.position.x = 1.8;
   arcademachine2.rotation.y = -0.3;
-  const plasty = document.getElementById('plasty-rotate-div')
-  const plastyLabel = new CSS3DObject( plasty );
-  plastyLabel.position.set( 1.77, -99.23, 23);
-  plastyLabel.scale.set(0.005, 0.005, 0.005);
-  plastyLabel.rotation.y = -0.3;
-  scene.add(plastyLabel)
-  const plastyclick = document.getElementById('plasty-clicked')
+
+  const plastyclick = document.getElementById('plasty-clicked');
   const plastyclickLabel = new CSS3DObject( plastyclick );
   plastyclickLabel.position.set( 1.72, -100, 23.2);
   plastyclickLabel.scale.set(0.0052, 0.0052, 0.0052);
   scene.add(plastyclickLabel)
+
   const arcademachine3 = model.clone();
+  const plastyNeon = new THREE.TextureLoader().load('/Plasty/plasty-neon.webp');
+  plastyNeon.wrapS = THREE.RepeatWrapping; // Repeat horizontally
+  plastyNeon.flipY = false; // Keep the texture orientation
+  arcademachine3.getObjectByName('������������_������_5_ARCAD').material = new THREE.MeshBasicMaterial({map: plastyNeon});
+  
   arcademachine3.position.x = -1.8
   arcademachine3.rotation.y = 0.3;
-  const monster = document.getElementById('monster-rotate-div')
-  const monsterLabel = new CSS3DObject( monster );
-  monsterLabel.position.set( -1.83, -99.23, 23);
-  monsterLabel.scale.set(0.005, 0.005, 0.005);
-  scene.add(monsterLabel)
-  const monsterclick = document.getElementById('monster-clicked')
+
+  const monsterclick = document.getElementById('monster-clicked');
   const monsterclickLabel = new CSS3DObject( monsterclick );
   monsterclickLabel.position.set( -1.80, -100, 23.2);
   monsterclickLabel.scale.set(0.0052, 0.0052, 0.0052);
@@ -291,13 +303,13 @@ loader.load('/static/Arcade/scene.gltf', function(gltf) {
 })
 
 
-loader.load('/static/City/city.glb', function(gltf) {
+loader.load('static/City/city-reduced.glb', function(gltf) {
   const model2 = gltf.scene;
   model2.position.y = -118;
   model2.position.z = 8;
   model2.position.x = -1.8
   model2.rotation.y = Math.PI * -0.5
-  model2.scale.set(0.001, 0.001, 0.001);
+  // model2.scale.set(0.001, 0.001, 0.001);
   scene.add(model2);
 })
 
@@ -319,10 +331,10 @@ scene.add(lightcityarcade)
 //plasty
 var plastyArcadeClick = document.getElementById('plasty-clicked');
 plastyArcadeClick.onclick = function() {
-  tweenCamera(new THREE.Vector3( 1.8, -99.7, 23.1 ), 2000, true);
+  tweenCamera(new THREE.Vector3( 1.8, -99.7, 23.1 ), 5000, true);
   setTimeout(function() {
     camera.position.set(300, -100, 60);
-    tweenCamera(new THREE.Vector3( 300, -100, 30 ), 2000, true);
+    tweenCamera(new THREE.Vector3( 300, -100, 30 ), 5000, true);
   }, 2000)
 }
 
@@ -372,7 +384,7 @@ plastyBackButtonLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(plastyBackButtonLabel);
 
 var plastyLogoLabel;
-imageloader.load("Plasty/icon.png", function(image){
+imageloader.load("Plasty/icon.webp", function(image){
   image.width = image.width * 0.0022;
   image.height = image.height * 0.0022;
   plastyLogoLabel = new CSS3DObject( image );
@@ -381,7 +393,7 @@ imageloader.load("Plasty/icon.png", function(image){
 })
 
 var plastyDemoLabel;
-imageloader.load("Plasty/plasty-account.png", function(image){
+imageloader.load("Plasty/plasty-account.webp", function(image){
   image.width = image.width * 0.005;
   image.height = image.height * 0.005;
   plastyDemoLabel = new CSS3DObject( image );
@@ -412,9 +424,14 @@ scene.add(plastyRepositoryButtonLabel);
 
 
 document.addEventListener('mousemove', function(e) {
-  var mousecords = getMousePos(e);
-  moveBox(mousecords, 5);
-})
+  if (camera.position.x === 300 || camera.position.x === 400 || camera.position.x === 500) {
+    var mousecords = getMousePos(e);
+    moveBox(mousecords, 5);
+  }
+  if (camera.position.y === -400) {
+    onMouseMove(e)
+  }
+});
 
 function getMousePos(e) {
   return { x: e.clientX, y: e.clientY };
@@ -435,10 +452,10 @@ function moveBox(mouse, degreeLimit) {
     titleplasty3.rotation.x = degToRad(degrees.y);
     titleplastyBlockLine3.rotation.y = degToRad(degrees.x);
     titleplastyBlockLine3.rotation.x = degToRad(degrees.y);
-    plastyLogoLabel.rotation.y = degToRad(degrees.x);
-    plastyLogoLabel.rotation.x = degToRad(degrees.y);
-    plastyDemoLabel.rotation.y = degToRad(degrees.x);
-    plastyDemoLabel.rotation.x = degToRad(degrees.y);
+    // plastyLogoLabel.rotation.y = degToRad(degrees.x);
+    // plastyLogoLabel.rotation.x = degToRad(degrees.y);
+    // plastyDemoLabel.rotation.y = degToRad(degrees.x);
+    // plastyDemoLabel.rotation.x = degToRad(degrees.y);
     plastyTitleLabel.rotation.y = degToRad(degrees.x);
     plastyTitleLabel.rotation.x = degToRad(degrees.y);
   }
@@ -455,8 +472,8 @@ function moveBox(mouse, degreeLimit) {
     titletwentyfourstroke3.rotation.x = degToRad(degrees.y);
     titletwentyfourstrokeBlockLine3.rotation.y = degToRad(degrees.x);
     titletwentyfourstrokeBlockLine3.rotation.x = degToRad(degrees.y);
-    twentyfourstrokeLogoLabel.rotation.y = degToRad(degrees.x);
-    twentyfourstrokeLogoLabel.rotation.x = degToRad(degrees.y);
+    // twentyfourstrokeLogoLabel.rotation.y = degToRad(degrees.x);
+    // twentyfourstrokeLogoLabel.rotation.x = degToRad(degrees.y);
     twentyfourstrokeTitleLabel.rotation.y = degToRad(degrees.x);
     twentyfourstrokeTitleLabel.rotation.x = degToRad(degrees.y);
   }
@@ -473,10 +490,10 @@ function moveBox(mouse, degreeLimit) {
     titlemonster3.rotation.x = degToRad(degrees.y);
     titlemonsterBlockLine3.rotation.y = degToRad(degrees.x);
     titlemonsterBlockLine3.rotation.x = degToRad(degrees.y);
-    monsterLogoLabel.rotation.y = degToRad(degrees.x);
-    monsterLogoLabel.rotation.x = degToRad(degrees.y);
-    monsterDemoLabel.rotation.y = degToRad(degrees.x);
-    monsterDemoLabel.rotation.x = degToRad(degrees.y);
+    // monsterLogoLabel.rotation.y = degToRad(degrees.x);
+    // monsterLogoLabel.rotation.x = degToRad(degrees.y);
+    // monsterDemoLabel.rotation.y = degToRad(degrees.x);
+    // monsterDemoLabel.rotation.x = degToRad(degrees.y);
     monsterTitleLabel.rotation.y = degToRad(degrees.x);
     monsterTitleLabel.rotation.x = degToRad(degrees.y);
   }
@@ -539,8 +556,8 @@ var twentyfourstrokeArcadeClick = document.getElementById('twentyfourstroke-clic
 twentyfourstrokeArcadeClick.onclick = function() {
   tweenCamera(new THREE.Vector3( 0, -99.7, 23.1 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(400, -100, 60);
-    tweenCamera(new THREE.Vector3( 400, -100, 30 ), 2000, true);
+    camera.position.set(500, -100, 60);
+    tweenCamera(new THREE.Vector3( 500, -100, 30 ), 2000, true);
   }, 2000)
 }
 
@@ -579,8 +596,14 @@ twentyfourstrokeBackButtonLabel.position.set( 400, -96.85, 20);
 twentyfourstrokeBackButtonLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(twentyfourstrokeBackButtonLabel);
 
+const twentyfourstrokeiframe = document.getElementById('iframe-24stroke');
+const twentyfourstrokeiframeLabel = new CSS3DObject( twentyfourstrokeiframe );
+twentyfourstrokeiframeLabel.position.set( 396.79, -101, 20);
+twentyfourstrokeiframeLabel.scale.set(0.0065, 0.0065, 0.0065);
+scene.add(twentyfourstrokeiframeLabel);
+
 var twentyfourstrokeLogoLabel;
-imageloader.load("24Stroke/24stroke-logo.png", function(image){
+imageloader.load("24Stroke/24stroke-logo.webp", function(image){
   image.width = image.width * 0.0044;
   image.height = image.height * 0.0044;
   twentyfourstrokeLogoLabel = new CSS3DObject( image );
@@ -617,7 +640,7 @@ scene.add(twentyfourstrokeRepositoryButtonLabel);
 twentyfourstrokeBackButton.onclick = function() {
   tweenCamera(new THREE.Vector3( 400, -100, 60 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(0, -99.7, 24);
+    camera.position.set(-2.1, -99.6, 22);
     tweenCamera(new THREE.Vector3( 0, -100, 30 ), 2000, true);
   }, 2000)
 }
@@ -627,8 +650,8 @@ var monsterArcadeClick = document.getElementById('monster-clicked');
 monsterArcadeClick.onclick = function() {
   tweenCamera(new THREE.Vector3( -2.1, -99.6, 22.1 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(500, -100, 60);
-    tweenCamera(new THREE.Vector3( 500, -100, 30 ), 2000, true);
+    camera.position.set(400, -100, 60);
+    tweenCamera(new THREE.Vector3( 400, -100, 30 ), 2000, true);
   }, 2000)
 }
 
@@ -668,7 +691,7 @@ monsterBackButtonLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(monsterBackButtonLabel);
 
 var monsterLogoLabel;
-imageloader.load("Monster Collection/icon-512x512-removebg-preview.png", function(image){
+imageloader.load("Monster Collection/icon-512x512-removebg-preview.webp", function(image){
   image.width = image.width * 0.0022;
   image.height = image.height * 0.0022;
   monsterLogoLabel = new CSS3DObject( image );
@@ -677,7 +700,7 @@ imageloader.load("Monster Collection/icon-512x512-removebg-preview.png", functio
 })
 
 var monsterDemoLabel;
-imageloader.load("Monster Collection/monster-can.png", function(image){
+imageloader.load("Monster Collection/monster-can.webp", function(image){
   image.width = image.width * 0.0058;
   image.height = image.height * 0.0058;
   monsterDemoLabel = new CSS3DObject( image );
@@ -709,7 +732,7 @@ scene.add(monsterRepositoryButtonLabel);
 monsterBackButton.onclick = function() {
   tweenCamera(new THREE.Vector3( 500, -100, 60 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(-2.1, -99.6, 22);
+    camera.position.set(0, -99.7, 24);
     tweenCamera(new THREE.Vector3( 0, -100, 30 ), 2000, true);
   }, 2000)
 }
@@ -930,10 +953,10 @@ scene.add(pyramidedges12)
 let mixer;
 let Me;
 let MeClips;
-loader.load('/static/Me/blenderwalkV2.glb', function(gltf) {
+loader.load('static/Me/MeAnimated.glb', function(gltf) {
     Me = gltf.scene;
     MeClips = gltf.animations;
-    Me.position.set(2 , -404, 25)
+    Me.position.set(1.6 , -404.5, 26)
     Me.scale.set(2.7, 2.7, 2.7);
     Me.rotation.y = Math.PI * -0.1
     scene.add(Me);
@@ -941,11 +964,25 @@ loader.load('/static/Me/blenderwalkV2.glb', function(gltf) {
 
 function thirdScreenAnimation() {
   mixer = new THREE.AnimationMixer(Me);
-      const clipWave = THREE.AnimationClip.findByName(MeClips, 'Wave')
-      const actionWave = mixer.clipAction(clipWave)
-      actionWave.setLoop(THREE.LoopOnce)
-      actionWave.enable = true;
-      actionWave.play();
+  const clipWave = THREE.AnimationClip.findByName(MeClips, 'Me_WAVE')
+  const clipIdle = THREE.AnimationClip.findByName(MeClips, 'Me_Idle.001')
+  // console.log(THREE.AnimationClip.findByName(MeClips, 'Me_Idle.001'))
+  
+  const actionWave = mixer.clipAction(clipWave)
+  actionWave.setLoop(THREE.LoopOnce)
+  actionWave.enable = true;
+  actionWave.play();
+
+  const actionIdle = mixer.clipAction(clipIdle)
+  actionIdle.setLoop(THREE.LoopRepeat)
+
+  mixer.addEventListener('finished', function (e) {
+    if (e.action._clip.name === 'Me_WAVE') {
+      const duration = 1;
+      actionWave.crossFadeTo(actionIdle, duration, true);
+      actionIdle.play();
+    }
+  }) 
 
 }
 
@@ -973,7 +1010,7 @@ const aboutMeVue = document.getElementById('vue')
 // aboutMeVueLabel.rotation.y = -Math.PI * 0.1
 // scene.add(aboutMeVueLabel)
 let vue;
-loader.load('/static/Logo/vue.glb', function(gltf) {
+loader.load('static/Logo/vue.glb', function(gltf) {
   vue = gltf.scene;
   vue.position.set(-0.3, -401, 26.2)
   vue.scale.set(0.04, 0.04, 0.04);
@@ -982,7 +1019,7 @@ loader.load('/static/Logo/vue.glb', function(gltf) {
 })
 
 let react;
-loader.load('/static/Logo/react.glb', function(gltf) {
+loader.load('static/Logo/react.glb', function(gltf) {
   react = gltf.scene;
   react.position.set(0.33, -400.9, 26.2)
   react.scale.set(0.6,0.6, 0.6);
@@ -991,7 +1028,7 @@ loader.load('/static/Logo/react.glb', function(gltf) {
 })
 
 let spring;
-loader.load('/static/Logo/Spring.glb', function(gltf) {
+loader.load('static/Logo/Spring.glb', function(gltf) {
   spring = gltf.scene;
   spring.position.set(-0.3, -400.9, 23)
   spring.scale.set(0.6,0.6, 0.6);
@@ -1001,7 +1038,7 @@ loader.load('/static/Logo/Spring.glb', function(gltf) {
 })
 
 let dotnet;
-loader.load('/static/Logo/dotnet.glb', function(gltf) {
+loader.load('static/Logo/dotnet.glb', function(gltf) {
   dotnet = gltf.scene;
   dotnet.position.set(0, -400.9, 24)
   dotnet.scale.set(0.25, 0.25, 0.25);
@@ -1011,7 +1048,7 @@ loader.load('/static/Logo/dotnet.glb', function(gltf) {
 })
 
 let csharp;
-loader.load('/static/Logo/csharp.glb', function(gltf) {
+loader.load('static/Logo/csharp.glb', function(gltf) {
   csharp = gltf.scene;
   csharp.position.set(-1.3, -400.9, 26.2)
   csharp.scale.set(0.35,0.35, 0.35);
@@ -1021,7 +1058,7 @@ loader.load('/static/Logo/csharp.glb', function(gltf) {
 })
 
 let javascript;
-loader.load('/static/Logo/javascript.glb', function(gltf) {
+loader.load('static/Logo/javascript.glb', function(gltf) {
   javascript = gltf.scene;
   javascript.position.set(-0.8, -400.9, 25.3)
   javascript.scale.set(1.8, 1.8, 1.8);
@@ -1034,9 +1071,8 @@ let raycaster = new THREE.Raycaster();
 let mouse = new THREE.Vector2();
 let hover = false;
 let currentIntersection = null;
-document.addEventListener('pointermove', function(e) {
-  onMouseMove(e)
-})
+
+
 document.addEventListener('click', function(e) {
   onClick(e)
 })
@@ -1048,7 +1084,6 @@ function onClick(event) {
   const objects = [javascript, csharp, dotnet, spring, react, vue];
   const intersects = raycaster.intersectObjects(objects, true);
   if (intersects.length > 0) {
-    console.log(intersects[0].object)
     if (intersects[0].object.parent.name == "javascript") {
       window.open("https://www.javascript.com/")
     }
@@ -1065,7 +1100,7 @@ function onClick(event) {
       window.open("https://www.vuejs.org/")
     }
     if(intersects[0].object.parent.name == "react") {
-    window.open("https://www.reactjs.org/")
+      window.open("https://www.reactjs.org/")
     }
   }
 }
@@ -1087,14 +1122,14 @@ function onMouseMove(event, object) {
   renderer.render(scene, camera);
 }
 
-const backgroundTextureThirdScreen = new THREE.TextureLoader().load('Scenery/Scenery.png'); 
+const backgroundTextureThirdScreen = new THREE.TextureLoader().load('Scenery/Scenery.webp'); 
 const backgroundThirdScreenGeometry = new THREE.PlaneGeometry( 192, 108, 20, 20 );
 const backgroundMaterialThirdScreen = new THREE.MeshBasicMaterial( { map: backgroundTextureThirdScreen } );
 const backgroundThirdScreen = new THREE.Mesh( backgroundThirdScreenGeometry, backgroundMaterialThirdScreen );
 backgroundThirdScreen.position.set(2, -324, -250)
 backgroundThirdScreen.scale.set(1.5, 1.5, 1.5)
 scene.add(backgroundThirdScreen);
-const backgroundTextureThirdScreen1 = new THREE.TextureLoader().load('Scenery/Scenery-background.png'); 
+const backgroundTextureThirdScreen1 = new THREE.TextureLoader().load('Scenery/Scenery-background.webp'); 
 const backgroundThirdScreenGeometry1 = new THREE.PlaneGeometry( 192, 108, 20, 20 );
 const backgroundMaterialThirdScreen1 = new THREE.MeshBasicMaterial( { map: backgroundTextureThirdScreen1 } );
 const backgroundThirdScreen1 = new THREE.Mesh( backgroundThirdScreenGeometry1, backgroundMaterialThirdScreen1 );
@@ -1102,7 +1137,7 @@ backgroundThirdScreen1.position.set(-190, -324, -251)
 backgroundThirdScreen1.scale.set(1.5, 1.5, 1.5)
 scene.add(backgroundThirdScreen1);
 
-const backgroundTextureThirdScreen2 = new THREE.TextureLoader().load('Scenery/Scenery-background.png'); 
+const backgroundTextureThirdScreen2 = new THREE.TextureLoader().load('Scenery/Scenery-background.webp'); 
 const backgroundThirdScreenGeometry2 = new THREE.PlaneGeometry( 192, 108, 20, 20 );
 const backgroundMaterialThirdScreen2 = new THREE.MeshBasicMaterial( { map: backgroundTextureThirdScreen2 } );
 const backgroundThirdScreen2 = new THREE.Mesh( backgroundThirdScreenGeometry2, backgroundMaterialThirdScreen2 );
@@ -1278,18 +1313,28 @@ window.addEventListener('resize', () =>
 //animation
 
 const clock = new THREE.Clock()
+const updatedPositions = new Float32Array(points.length * 3);
+
 function animate() {
     requestAnimationFrame( animate );
 
-    for (let i = 0; i < points.length; i++) {
-        points[i].z += points[i].velocity;
-        
-        if (points[i].z > 40) {
-            points[i].z = -200;
-        }
-        starGeo.attributes.position.setXYZ(i, points[i].x, points[i].y, points[i].z)
-    };
-    starGeo.attributes.position.needsUpdate = true;
+    if (camera.position.y >= -40) {
+
+      // Update positions in a separate array without modifying the geometry directly
+        for (let i = 0; i < points.length; i++) {
+          points[i].z += points[i].velocity;
+          if (points[i].z > 40) {
+              points[i].z = -200;
+          }
+
+          updatedPositions[i * 3] = points[i].x;
+          updatedPositions[i * 3 + 1] = points[i].y;
+          updatedPositions[i * 3 + 2] = points[i].z;
+      }
+
+      // Update the geometry's position attribute once outside the loop
+      starGeo.setAttribute('position', new THREE.BufferAttribute(updatedPositions, 3));
+    }
 
     TWEEN.update();
     if (mixer){
@@ -1305,15 +1350,15 @@ animate()
 
 //click to get started text blinking
 
-let hiddenStart = false
+// let hiddenStart = false
 
-setInterval(() => {
-    const box = document.getElementsByClassName('start');
-    hiddenStart = !hiddenStart;
-    if (hiddenStart == true) {
-      box[0].style.visibility = 'visible';
-    }
-    else {
-      box[0].style.visibility = 'hidden';
-    }
-  }, 800);
+// setInterval(() => {
+//     const box = document.getElementsByClassName('start');
+//     hiddenStart = !hiddenStart;
+//     if (hiddenStart == true) {
+//       box[0].style.visibility = 'visible';
+//     }
+//     else {
+//       box[0].style.visibility = 'hidden';
+//     }
+//   }, 800);
