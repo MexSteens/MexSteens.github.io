@@ -25,7 +25,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 camera.position.setZ(30)
 camera.position.setX(0)
-camera.position.setY(-400)
+camera.position.setY(-100)
 
 renderer.render(scene, camera)
 
@@ -181,7 +181,7 @@ scene.add(arrowDownSecondScreen);
 
 arrowDownSecondScreenElement.onclick = function() {
   tweenCamera(new THREE.Vector3( 0, -400, 30 ), 3000, false);
-  const myTimeout = setTimeout(thirdScreenAnimation, 3000);
+  thirdScreenAnimation();
 }
 
 const arrowUpThirdScreenElement = document.getElementById('third-screen-up')
@@ -212,7 +212,7 @@ scene.add(arrowUpFourthScreen);
 
 arrowUpFourthScreenElement.onclick = function() {
   tweenCamera(new THREE.Vector3( 0, -400, 30 ), 3000, false);
-  const myTimeout = setTimeout(thirdScreenAnimation, 2000);
+  thirdScreenAnimation();
 }
 
 
@@ -953,7 +953,7 @@ scene.add(pyramidedges12)
 let mixer;
 let Me;
 let MeClips;
-loader.load('static/Me/MeAnimated.glb', function(gltf) {
+loader.load('static/Me/MeRiggedActions.glb', function(gltf) {
     Me = gltf.scene;
     MeClips = gltf.animations;
     Me.position.set(1.6 , -404.5, 26)
@@ -964,26 +964,12 @@ loader.load('static/Me/MeAnimated.glb', function(gltf) {
 
 function thirdScreenAnimation() {
   mixer = new THREE.AnimationMixer(Me);
-  const clipWave = THREE.AnimationClip.findByName(MeClips, 'Me_WAVE')
-  const clipIdle = THREE.AnimationClip.findByName(MeClips, 'Me_Idle.001')
-  // console.log(THREE.AnimationClip.findByName(MeClips, 'Me_Idle.001'))
-  
-  const actionWave = mixer.clipAction(clipWave)
-  actionWave.setLoop(THREE.LoopOnce)
-  actionWave.enable = true;
-  actionWave.play();
+  const clipCombined = THREE.AnimationClip.findByName(MeClips, 'CombinedActions');
 
-  const actionIdle = mixer.clipAction(clipIdle)
-  actionIdle.setLoop(THREE.LoopRepeat)
-
-  mixer.addEventListener('finished', function (e) {
-    if (e.action._clip.name === 'Me_WAVE') {
-      const duration = 1;
-      actionWave.crossFadeTo(actionIdle, duration, true);
-      actionIdle.play();
-    }
-  }) 
-
+  const actionCombined = mixer.clipAction(clipCombined);
+  actionCombined.setLoop(THREE.LoopRepeat);
+  actionCombined.enable = true;
+  actionCombined.play();
 }
 
 const lightAboutMe = new THREE.PointLight(0xffffff, 2, 20)
