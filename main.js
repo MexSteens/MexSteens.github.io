@@ -19,13 +19,9 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-// camera.position.setZ(30)
-// camera.position.setX(0)
-// camera.position.setY(4)
-
 camera.position.setZ(30)
 camera.position.setX(0)
-camera.position.setY(-100)
+camera.position.setY(4)
 
 renderer.render(scene, camera)
 
@@ -331,10 +327,10 @@ scene.add(lightcityarcade)
 //plasty
 var plastyArcadeClick = document.getElementById('plasty-clicked');
 plastyArcadeClick.onclick = function() {
-  tweenCamera(new THREE.Vector3( 1.8, -99.7, 23.1 ), 5000, true);
+  tweenCamera(new THREE.Vector3( 1.8, -99.7, 23.1 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(300, -100, 60);
-    tweenCamera(new THREE.Vector3( 300, -100, 30 ), 5000, true);
+    camera.position.set(500, -100, 60);
+    tweenCamera(new THREE.Vector3( 500, -100, 30 ), 2000, true);
   }, 2000)
 }
 
@@ -388,7 +384,7 @@ imageloader.load("Plasty/icon.webp", function(image){
   image.width = image.width * 0.0022;
   image.height = image.height * 0.0022;
   plastyLogoLabel = new CSS3DObject( image );
-  plastyLogoLabel.position.set( 298, -97.95, 20);
+  plastyLogoLabel.position.set( 297, -97.75, 20);
   scene.add(plastyLogoLabel)
 })
 
@@ -397,7 +393,7 @@ imageloader.load("Plasty/plasty-account.webp", function(image){
   image.width = image.width * 0.005;
   image.height = image.height * 0.005;
   plastyDemoLabel = new CSS3DObject( image );
-  plastyDemoLabel.position.set( 296.85, -101.05, 20);
+  plastyDemoLabel.position.set( 296.60, -101.05, 20);
   scene.add(plastyDemoLabel)
 })
 
@@ -545,7 +541,7 @@ function getMouseDegrees(x, y, degreeLimit) {
 plastyBackButton.onclick = function() {
   tweenCamera(new THREE.Vector3( 300, -100, 60 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(1.8, -99.7, 23.1);
+    camera.position.set(-2.1, -99.6, 22);
     tweenCamera(new THREE.Vector3( 0, -100, 30 ), 2000, true);
   }, 2000)
 }
@@ -556,8 +552,8 @@ var twentyfourstrokeArcadeClick = document.getElementById('twentyfourstroke-clic
 twentyfourstrokeArcadeClick.onclick = function() {
   tweenCamera(new THREE.Vector3( 0, -99.7, 23.1 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(500, -100, 60);
-    tweenCamera(new THREE.Vector3( 500, -100, 30 ), 2000, true);
+    camera.position.set(400, -100, 60);
+    tweenCamera(new THREE.Vector3( 400, -100, 30 ), 2000, true);
   }, 2000)
 }
 
@@ -607,7 +603,7 @@ imageloader.load("24Stroke/24stroke-logo.webp", function(image){
   image.width = image.width * 0.0044;
   image.height = image.height * 0.0044;
   twentyfourstrokeLogoLabel = new CSS3DObject( image );
-  twentyfourstrokeLogoLabel.position.set( 397.4, -97.90, 20);
+  twentyfourstrokeLogoLabel.position.set( 396.4, -97.70, 20);
   scene.add(twentyfourstrokeLogoLabel)
 })
 
@@ -640,7 +636,7 @@ scene.add(twentyfourstrokeRepositoryButtonLabel);
 twentyfourstrokeBackButton.onclick = function() {
   tweenCamera(new THREE.Vector3( 400, -100, 60 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(-2.1, -99.6, 22);
+    camera.position.set(0, -99.7, 24);
     tweenCamera(new THREE.Vector3( 0, -100, 30 ), 2000, true);
   }, 2000)
 }
@@ -650,8 +646,8 @@ var monsterArcadeClick = document.getElementById('monster-clicked');
 monsterArcadeClick.onclick = function() {
   tweenCamera(new THREE.Vector3( -2.1, -99.6, 22.1 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(400, -100, 60);
-    tweenCamera(new THREE.Vector3( 400, -100, 30 ), 2000, true);
+    camera.position.set(300, -100, 60);
+    tweenCamera(new THREE.Vector3( 300, -100, 30 ), 2000, true);
   }, 2000)
 }
 
@@ -692,21 +688,18 @@ scene.add(monsterBackButtonLabel);
 
 var monsterLogoLabel;
 imageloader.load("Monster Collection/icon-512x512-removebg-preview.webp", function(image){
-  image.width = image.width * 0.0022;
-  image.height = image.height * 0.0022;
+  image.width = image.width * 0.0036;
+  image.height = image.height * 0.0036;
   monsterLogoLabel = new CSS3DObject( image );
-  monsterLogoLabel.position.set( 496.5, -97.95, 20);
+  monsterLogoLabel.position.set( 496.5, -98, 20);
   scene.add(monsterLogoLabel)
 })
 
-var monsterDemoLabel;
-imageloader.load("Monster Collection/monster-can.webp", function(image){
-  image.width = image.width * 0.0058;
-  image.height = image.height * 0.0058;
-  monsterDemoLabel = new CSS3DObject( image );
-  monsterDemoLabel.position.set( 496.85, -101.07, 20);
-  scene.add(monsterDemoLabel)
-})
+const monsterIframe = document.getElementById('iframe-monster');
+const monsterIframeLabel = new CSS3DObject( monsterIframe );
+monsterIframeLabel.position.set( 496.79, -101.07, 20);
+monsterIframeLabel.scale.set(0.0065, 0.0065, 0.0065);
+scene.add(monsterIframeLabel);
 
 const monsterTitle = document.getElementById('monster-title');
 const monsterTitleLabel = new CSS3DObject( monsterTitle );
@@ -732,7 +725,7 @@ scene.add(monsterRepositoryButtonLabel);
 monsterBackButton.onclick = function() {
   tweenCamera(new THREE.Vector3( 500, -100, 60 ), 2000, true);
   setTimeout(function() {
-    camera.position.set(0, -99.7, 24);
+    camera.position.set(1.8, -99.7, 23.1);
     tweenCamera(new THREE.Vector3( 0, -100, 30 ), 2000, true);
   }, 2000)
 }
