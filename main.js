@@ -20,8 +20,8 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30)
-camera.position.setX(0)
-camera.position.setY(4)
+camera.position.setX(300)
+camera.position.setY(-100)
 
 renderer.render(scene, camera)
 
@@ -279,7 +279,7 @@ loader.load('static/Arcade/Arcade-reduced-2.glb', function(gltf) {
   scene.add(plastyclickLabel)
 
   const arcademachine3 = model.clone();
-  const plastyNeon = new THREE.TextureLoader().load('/Plasty/plasty-neon.webp');
+  const plastyNeon = new THREE.TextureLoader().load('/24Stroke/24stroke-neon.webp');
   plastyNeon.wrapS = THREE.RepeatWrapping; // Repeat horizontally
   plastyNeon.flipY = false; // Keep the texture orientation
   arcademachine3.getObjectByName('������������_������_5_ARCAD').material = new THREE.MeshBasicMaterial({map: plastyNeon});
@@ -379,42 +379,48 @@ plastyBackButtonLabel.position.set( 300, -96.85, 20);
 plastyBackButtonLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(plastyBackButtonLabel);
 
-var plastyLogoLabel;
-imageloader.load("Plasty/icon.webp", function(image){
-  image.width = image.width * 0.0022;
-  image.height = image.height * 0.0022;
-  plastyLogoLabel = new CSS3DObject( image );
-  plastyLogoLabel.position.set( 297, -97.75, 20);
-  scene.add(plastyLogoLabel)
-})
+const plastyBackButton2 = document.getElementById('plasty-back-2');
+const plastyBackButtonLabel2 = new CSS3DObject( plastyBackButton2 );
+plastyBackButtonLabel2.position.set( 296.77, -100.97, 20);
+plastyBackButtonLabel2.scale.set(0.0065, 0.0065, 0.0065);
+scene.add(plastyBackButtonLabel2);
 
-var plastyDemoLabel;
-imageloader.load("Plasty/plasty-account.webp", function(image){
-  image.width = image.width * 0.005;
-  image.height = image.height * 0.005;
-  plastyDemoLabel = new CSS3DObject( image );
-  plastyDemoLabel.position.set( 296.60, -101.05, 20);
-  scene.add(plastyDemoLabel)
-})
+// var plastyLogoLabel;
+// imageloader.load("Plasty/icon.webp", function(image){
+//   image.width = image.width * 0.0022;
+//   image.height = image.height * 0.0022;
+//   plastyLogoLabel = new CSS3DObject( image );
+//   plastyLogoLabel.position.set( 297, -97.75, 20);
+//   scene.add(plastyLogoLabel)
+// })
+
+// var plastyDemoLabel;
+// imageloader.load("Plasty/plasty-account.webp", function(image){
+//   image.width = image.width * 0.005;
+//   image.height = image.height * 0.005;
+//   plastyDemoLabel = new CSS3DObject( image );
+//   plastyDemoLabel.position.set( 296.60, -101.05, 20);
+//   scene.add(plastyDemoLabel)
+// })
 
 const plastyTitle = document.getElementById('plasty-title');
 const plastyTitleLabel = new CSS3DObject( plastyTitle );
-plastyTitleLabel.position.set( 301, -97.95, 20);
+plastyTitleLabel.position.set( 301, -97.9, 20);
 plastyTitleLabel.scale.set(0.03, 0.03, 0.03);
 scene.add(plastyTitleLabel);
 const plastyDescription = document.getElementById('plasty-description');
 const plastyDescriptionLabel = new CSS3DObject( plastyDescription );
-plastyDescriptionLabel.position.set( 302, -100.5, 20);
+plastyDescriptionLabel.position.set( 302.1, -100.3, 20);
 plastyDescriptionLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(plastyDescriptionLabel);
-const plastyWebsiteButton = document.getElementById('plasty-view-website');
-const plastyWebsiteButtonLabel = new CSS3DObject( plastyWebsiteButton );
-plastyWebsiteButtonLabel.position.set( 300.24, -102.3, 20);
-plastyWebsiteButtonLabel.scale.set(0.006, 0.006, 0.006);
-scene.add(plastyWebsiteButtonLabel);
+// const plastyWebsiteButton = document.getElementById('plasty-view-website');
+// const plastyWebsiteButtonLabel = new CSS3DObject( plastyWebsiteButton );
+// plastyWebsiteButtonLabel.position.set( 300.24, -101.8, 20);
+// plastyWebsiteButtonLabel.scale.set(0.006, 0.006, 0.006);
+// scene.add(plastyWebsiteButtonLabel);
 const plastyRepositoryButton = document.getElementById('plasty-view-repository');
 const plastyRepositoryButtonLabel = new CSS3DObject( plastyRepositoryButton );
-plastyRepositoryButtonLabel.position.set( 303.71, -102.3, 20);
+plastyRepositoryButtonLabel.position.set( 302, -102.8, 20);
 plastyRepositoryButtonLabel.scale.set(0.006, 0.006, 0.006);
 scene.add(plastyRepositoryButtonLabel);
 
@@ -592,20 +598,35 @@ twentyfourstrokeBackButtonLabel.position.set( 400, -96.85, 20);
 twentyfourstrokeBackButtonLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(twentyfourstrokeBackButtonLabel);
 
-const twentyfourstrokeiframe = document.getElementById('iframe-24stroke');
-const twentyfourstrokeiframeLabel = new CSS3DObject( twentyfourstrokeiframe );
-twentyfourstrokeiframeLabel.position.set( 396.79, -101, 20);
-twentyfourstrokeiframeLabel.scale.set(0.0065, 0.0065, 0.0065);
-scene.add(twentyfourstrokeiframeLabel);
+// const twentyfourstrokeiframe = document.getElementById('iframe-24stroke');
+// const twentyfourstrokeiframeLabel = new CSS3DObject( twentyfourstrokeiframe );
+// twentyfourstrokeiframeLabel.position.set( 196.79, -101, 20);
+// twentyfourstrokeiframeLabel.scale.set(0.0065, 0.0065, 0.0065);
+// scene.add(twentyfourstrokeiframeLabel);
+
+const bajabikesiframe = document.getElementById('iframe-bb');
+const bajabikesiframelabel = new CSS3DObject( bajabikesiframe );
+bajabikesiframelabel.position.set( 396.79, -101, 20);
+bajabikesiframelabel.scale.set(0.0065, 0.0065, 0.0065);
+scene.add(bajabikesiframelabel);
 
 var twentyfourstrokeLogoLabel;
 imageloader.load("24Stroke/24stroke-logo.webp", function(image){
   image.width = image.width * 0.0044;
   image.height = image.height * 0.0044;
   twentyfourstrokeLogoLabel = new CSS3DObject( image );
-  twentyfourstrokeLogoLabel.position.set( 396.4, -97.70, 20);
+  twentyfourstrokeLogoLabel.position.set(296.60, -97.9, 20 );
   scene.add(twentyfourstrokeLogoLabel)
 })
+
+// var bajabikesLogoLabel;
+// imageloader.load("BajaBikes/bb-logo.webp", function(image){
+//   image.width = image.width * 0.019;
+//   image.height = image.height * 0.027;
+//   bajabikesLogoLabel = new CSS3DObject( image );
+//   bajabikesLogoLabel.position.set( 396.4, -97.70, 20 );
+//   scene.add(bajabikesLogoLabel)
+// })
 
 // const twentyfourstrokeLogo = document.getElementById('twentyfourstroke-logo');
 // const twentyfourstrokeLogoLabel = new CSS3DObject( twentyfourstrokeLogo );
@@ -614,24 +635,24 @@ imageloader.load("24Stroke/24stroke-logo.webp", function(image){
 // scene.add(twentyfourstrokeLogoLabel)
 const twentyfourstrokeTitle = document.getElementById('twentyfourstroke-title');
 const twentyfourstrokeTitleLabel = new CSS3DObject( twentyfourstrokeTitle );
-twentyfourstrokeTitleLabel.position.set( 401, -97.95, 20);
+twentyfourstrokeTitleLabel.position.set( 400, -97.9, 20);
 twentyfourstrokeTitleLabel.scale.set(0.03, 0.03, 0.03);
 scene.add(twentyfourstrokeTitleLabel);
 const twentyfourstrokeDescription = document.getElementById('twentyfourstroke-description');
 const twentyfourstrokeDescriptionLabel = new CSS3DObject( twentyfourstrokeDescription );
-twentyfourstrokeDescriptionLabel.position.set( 402.1, -100.3, 20);
+twentyfourstrokeDescriptionLabel.position.set( 402.1, -100.8, 20);
 twentyfourstrokeDescriptionLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(twentyfourstrokeDescriptionLabel);
 const twentyfourstrokeWebsiteButton = document.getElementById('twentyfourstroke-view-website');
 const twentyfourstrokeWebsiteButtonLabel = new CSS3DObject( twentyfourstrokeWebsiteButton );
-twentyfourstrokeWebsiteButtonLabel.position.set( 400.24, -102, 20);
+twentyfourstrokeWebsiteButtonLabel.position.set( 401.9, -102.83, 20);
 twentyfourstrokeWebsiteButtonLabel.scale.set(0.006, 0.006, 0.006);
 scene.add(twentyfourstrokeWebsiteButtonLabel);
-const twentyfourstrokeRepositoryButton = document.getElementById('twentyfourstroke-view-repository');
-const twentyfourstrokeRepositoryButtonLabel = new CSS3DObject( twentyfourstrokeRepositoryButton );
-twentyfourstrokeRepositoryButtonLabel.position.set( 403.71, -102, 20);
-twentyfourstrokeRepositoryButtonLabel.scale.set(0.006, 0.006, 0.006);
-scene.add(twentyfourstrokeRepositoryButtonLabel);
+// const twentyfourstrokeRepositoryButton = document.getElementById('twentyfourstroke-view-repository');
+// const twentyfourstrokeRepositoryButtonLabel = new CSS3DObject( twentyfourstrokeRepositoryButton );
+// twentyfourstrokeRepositoryButtonLabel.position.set( 403.71, -102, 20);
+// twentyfourstrokeRepositoryButtonLabel.scale.set(0.006, 0.006, 0.006);
+// scene.add(twentyfourstrokeRepositoryButtonLabel);
 
 twentyfourstrokeBackButton.onclick = function() {
   tweenCamera(new THREE.Vector3( 400, -100, 60 ), 2000, true);
@@ -711,14 +732,14 @@ const monsterDescriptionLabel = new CSS3DObject( monsterDescription );
 monsterDescriptionLabel.position.set( 502, -100.7, 20);
 monsterDescriptionLabel.scale.set(0.008, 0.008, 0.008);
 scene.add(monsterDescriptionLabel);
-const monsterWebsiteButton = document.getElementById('monster-view-website');
-const monsterWebsiteButtonLabel = new CSS3DObject( monsterWebsiteButton );
-monsterWebsiteButtonLabel.position.set( 500.24, -102.8, 20);
-monsterWebsiteButtonLabel.scale.set(0.006, 0.006, 0.006);
-scene.add(monsterWebsiteButtonLabel);
+// const monsterWebsiteButton = document.getElementById('monster-view-website');
+// const monsterWebsiteButtonLabel = new CSS3DObject( monsterWebsiteButton );
+// monsterWebsiteButtonLabel.position.set( 500.24, -102.8, 20);
+// monsterWebsiteButtonLabel.scale.set(0.006, 0.006, 0.006);
+// scene.add(monsterWebsiteButtonLabel);
 const monsterRepositoryButton = document.getElementById('monster-view-repository');
 const monsterRepositoryButtonLabel = new CSS3DObject( monsterRepositoryButton );
-monsterRepositoryButtonLabel.position.set( 503.71, -102.8, 20);
+monsterRepositoryButtonLabel.position.set( 502, -102.8, 20);
 monsterRepositoryButtonLabel.scale.set(0.006, 0.006, 0.006);
 scene.add(monsterRepositoryButtonLabel);
 

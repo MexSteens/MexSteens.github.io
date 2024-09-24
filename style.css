@@ -15,12 +15,6 @@
   src: url(/Fonts/AtariClassic-gry3.ttf);
 }
 
-/* h1, h2, h3, h4, h5, p {
-  font-family: 'Josefin Sans';
-} */
-/* body {
-  margin: 0 !important;
-} */
 #message {
   display: none;
   background-color: black;
@@ -64,100 +58,6 @@ canvas {
   top: 0;
 }
 
-
-/* .preloader-1 {
-  margin-top: 30vh;
-  height: 12px;
-}
-
-
-.loader {
-  color: #fff;
-  margin: 1rem 0;
-  text-transform: uppercase;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  font-size: 2rem;
-  letter-spacing: 0.4rem;
-}
-
-.preloader-1 .line {
-  width: 0.6rem;
-  height: 2.4rem;
-  background: #fff;
-  margin: 0 .2rem;
-  display: inline-block;
-  animation: opacity-2 1000ms infinite ease-in-out;
-}
-
-.preloader-1 .line-1, .preloader-2 .line-1 { animation-delay: 800ms; }
-.preloader-1 .line-2, .preloader-2 .line-2 { animation-delay: 600ms; }
-.preloader-1 .line-3, .preloader-2 .line-3 { animation-delay: 400ms; }
-.preloader-1 .line-4, .preloader-2 .line-4 { animation-delay: 200ms; }
-.preloader-1 .line-6, .preloader-2 .line-6 { animation-delay: 200ms; }
-.preloader-1 .line-7, .preloader-2 .line-7 { animation-delay: 400ms; }
-.preloader-1 .line-8, .preloader-2 .line-8 { animation-delay: 600ms; }
-.preloader-1 .line-9, .preloader-2 .line-9 { animation-delay: 800ms; }
-
-@keyframes opacity-1 { 
-  0% { 
-    opacity: 1;
-  }
-  50% { 
-    opacity: 0;
-  }
-  100% { 
-    opacity: 1;
-  }  
-}
-
-@keyframes opacity-2 { 
-  0% { 
-    opacity: 1;
-    height: 3rem;
-  }
-  50% { 
-    opacity: 0;
-    height: 2.4rem;
-  }
-  100% { 
-    opacity: 1;
-    height: 3rem;
-  }  
-}
-
-
-#loading-screen {
-	position: absolute;
-	z-index: 2;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #000000;
-	opacity: 1;
- 	transition: 1s opacity;
-  text-align: center;
-  align-items: center;
-  align-content: center;
-}
-
-#loading-screen.fade-out {
-    opacity: 0;
-} */
-
-/* section {
-  display: flex;
-  position: relative;
-  top: 10px;
-	width: 99vh;
-	text-align: center;
-	z-index: 100;
-	display:block;
-  color: white;
-  height: 99vh;
-} */
-
 .title {
   display: block;
   position: fixed;
@@ -198,7 +98,6 @@ canvas {
 .second-screen, .plasty-page {
   display: block;
   position: relative;
-  /* margin-top: 28vh; */
   text-align: center;
   color: white;
 }
@@ -216,34 +115,6 @@ i {
 
 #plasty {
   font-family: neon;
-  font-size: 22px;
-  margin: 0 !important;
-  /* transform: rotate(-0.5deg); */
-  color: #dbffd8;
-  text-shadow:
-  .06vw 0vw .025vw #dbffd8, .02vw 0vw .025vw #dbffd8, .04vw 0vw .025vw #dbffd8,
-  .06vw 0vw 0vw #5cf257, .18vw 0vw 0vw #5cf257, .12vw 0vw 0vw #5cf257,
-  .06vw 0vw .1vw #5cf257, .18vw 0vw .01vw #5cf257, .12vw 0vw .1vw #5cf257,
-  .06vw 0vw 2vw #5cf257, .18vw 0vw 2vw #5cf257, .12vw 0vw 2vw #5cf257,
-  .06vw 0vw 1vw #0be516, .18vw 0vw 1vw #0be516, .12vw 0vw 5vw #0be516,
-  .06vw 0vw 5vw #0be516, .18vw 0vw 20vw #0be516, .12vw 0vw 10vw #0be516,
-  .06vw 0vw 10vw #0be516, .18vw 0vw 30vw #0be516, .12vw 00vw 10vw #0be516;
-}
-
-.plasty-click {
-  font-family: atari-classic;
-  font-size: 0.6rem;
-  color: white;
-  text-align: center;
-  padding: 2rem;
-  padding-top: 4rem;
-  padding-bottom: 12rem;
-  cursor: pointer;
-  /* transform: rotate(-1.5deg); */
-}
-
-#twentyfourstroke {
-  font-family: neon;
   font-size: 1.1rem;
   margin: 0 !important;
   color: #ffd8d8;
@@ -255,6 +126,32 @@ i {
   .06vw 0vw 1vw #e50b0b, .18vw 0vw 1vw #e50b0b, .12vw 0vw 5vw #e50b0b,
   .06vw 0vw 5vw #e50b0b, .18vw 0vw 20vw #e50b0b, .12vw 0vw 10vw #e50b0b,
   .06vw 0vw 10vw #e50b0b, .18vw 0vw 30vw #e50b0b, .12vw 00vw 10vw #e50b0b;
+}
+
+.plasty-click {
+  font-family: atari-classic;
+  font-size: 0.6rem;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 12rem;
+  cursor: pointer;
+}
+
+#twentyfourstroke {
+  font-family: neon;
+  font-size: 22px;
+  margin: 0 !important;
+  color: #dbffd8;
+  text-shadow:
+  .06vw 0vw .025vw #dbffd8, .02vw 0vw .025vw #dbffd8, .04vw 0vw .025vw #dbffd8,
+  .06vw 0vw 0vw #5cf257, .18vw 0vw 0vw #5cf257, .12vw 0vw 0vw #5cf257,
+  .06vw 0vw .1vw #5cf257, .18vw 0vw .01vw #5cf257, .12vw 0vw .1vw #5cf257,
+  .06vw 0vw 2vw #5cf257, .18vw 0vw 2vw #5cf257, .12vw 0vw 2vw #5cf257,
+  .06vw 0vw 1vw #0be516, .18vw 0vw 1vw #0be516, .12vw 0vw 5vw #0be516,
+  .06vw 0vw 5vw #0be516, .18vw 0vw 20vw #0be516, .12vw 0vw 10vw #0be516,
+  .06vw 0vw 10vw #0be516, .18vw 0vw 30vw #0be516, .12vw 00vw 10vw #0be516;
 }
 
 .twentyfourstroke-click {
@@ -303,10 +200,8 @@ i {
 
 .title-information-page {
   font-family: overgrow;
-  /* font-size: 120px; */
   color: white;
   margin: 0 !important;
-  /* transform: rotate3d(1,1,0, 45deg); */
 }
 
 .description-information-page {
@@ -372,7 +267,6 @@ i {
 
 .back-button {
   background-color: black;
-  /* color: #db3eb1; */
   border: 6px solid #0028a0;
   border-radius:15px;
   padding: 15px 25px;
@@ -395,7 +289,6 @@ i {
 
 #about-me-title, #about-me-description {
   font-family: 'Courier New', Courier, monospace;
-  /* font-size: 25px; */
   color: white;
   font-weight: 600;
   margin: 0 !important;
@@ -408,7 +301,6 @@ i {
 }
 
 #triangle {
-  /* font-family: neon; */
   font-size: 2rem;
   margin: 0 !important;
   color: #ffd8d8;
@@ -465,8 +357,6 @@ i {
 }
 
 .contact {
-  /* display: flex;
-  flex-direction: column; */
   color: white;
   background-color: black;
   border-radius: 2rem;
@@ -488,11 +378,6 @@ i {
   margin-bottom: 0;
 }
 
-
-/* .mail {
-  display: flex;
-} */
-
 .fire {
   background-color: black;
   color: purple;
@@ -510,12 +395,17 @@ i {
   cursor: pointer;
 }
 
-#iframe-24stroke {
+.iframe-24stroke {
   width: 440px;
   height: auto;
 }
 
 #iframe-monster {
+  width: 440px;
+  height: auto;
+}
+
+#iframe-bb {
   width: 440px;
   height: auto;
 }
