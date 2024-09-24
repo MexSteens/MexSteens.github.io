@@ -20,8 +20,8 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30)
-camera.position.setX(300)
-camera.position.setY(-100)
+camera.position.setX(0)
+camera.position.setY(4)
 
 renderer.render(scene, camera)
 
@@ -262,7 +262,7 @@ loader.load('static/Arcade/Arcade-reduced-2.glb', function(gltf) {
   scene.add(twentyfourstrokeclickLabel)
   const arcademachine2 = model.clone();
 
-  const twentyfourstrokeNeon = new THREE.TextureLoader().load('/24Stroke/24stroke-neon.webp');
+  const twentyfourstrokeNeon = new THREE.TextureLoader().load('/BajaBikes/neon.webp');
   twentyfourstrokeNeon.wrapS = THREE.RepeatWrapping; // Repeat horizontally
   twentyfourstrokeNeon.flipY = false; // Keep the texture orientation
 
